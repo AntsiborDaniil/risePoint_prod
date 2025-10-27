@@ -1,0 +1,175 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# ============================================================
+# Dependencies
+# ============================================================
+node_modules/
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+.pnpm-store
+
+# ============================================================
+# Testing
+# ============================================================
+coverage/
+.nyc_output/
+*.lcov
+.jest/
+
+# ============================================================
+# Next.js
+# ============================================================
+.next/
+out/
+build/
+dist/
+
+# ============================================================
+# Production
+# ============================================================
+*.local
+*.log
+
+# ============================================================
+# Debug & Environment Variables
+# ============================================================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment files
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ============================================================
+# Deployment
+# ============================================================
+.vercel
+.netlify
+.firebase
+
+# ============================================================
+# IDE & Editors
+# ============================================================
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ============================================================
+# OS Files
+# ============================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+.nfs*
+
+# ============================================================
+# TypeScript
+# ============================================================
+*.tsbuildinfo
+next-env.d.ts
+
+# ============================================================
+# Temporary & Cache Files
+# ============================================================
+.cache/
+.parcel-cache/
+.turbo/
+.swc/
+.eslintcache
+.stylelintcache
+
+# ============================================================
+# Package Manager Locks (uncomment if you want to ignore)
+# ============================================================
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# ============================================================
+# Misc
+# ============================================================
+*.pem
+*.p12
+*.key
+*.crt
+*.cert
+
+# Storybook build output
+storybook-static
+
+# Misc
+.temp
+.tmp
+*.tmp
+*.bak
+*.backup

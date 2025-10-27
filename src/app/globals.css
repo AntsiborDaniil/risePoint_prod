@@ -1,0 +1,39 @@
+:root {
+    --font-inter: "Inter", sans-serif;
+    --font-plus-jakarta-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-inter);
+}
+
+/* Smooth scrolling для всей страницы */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Отключаем автоматическое восстановление позиции скролла браузером */
+html {
+    scroll-restoration: manual;
+}
+
+/* Оптимизация производительности для анимаций */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Улучшение производительности для hover эффектов */
+.card,
+.statItem,
+.menuLink,
+.logo,
+.heroButton,
+.imagePlaceholder {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}

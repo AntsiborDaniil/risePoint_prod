@@ -1,0 +1,248 @@
+.contact {
+    position: relative;
+
+    background: #0d0d0d;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.circles {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 100%;
+}
+
+.circlesImage {
+    width: 443px;
+    height: 100%;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    padding: 120px 307px 130px 307px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 81px;
+}
+
+.textSection {
+    margin-bottom: 0;
+}
+
+.contactsSection {
+    display: flex;
+    gap: 58px;
+}
+
+.prefix {
+    color: #999999;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.title {
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.description {
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-wrap: nowrap;
+}
+
+.contactGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 44px;
+    margin-bottom: 40px;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    padding: 28px 99px 28px 28px;
+    text-wrap: nowrap;
+    background: #d9d9d933;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #ffffff;
+}
+
+.contactItem:hover {
+    background: #333333;
+    transform: translateY(-2px);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+}
+
+.contactText {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 26.32px;
+    line-height: 32.9px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+.workingHours {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.hoursTitle {
+    color: #ffffff;
+    font-family: var(--font-plus-jakarta-sans);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 59px;
+    letter-spacing: -1.44px;
+}
+
+.hoursText {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0 0 8px 0;
+    opacity: 0.9;
+}
+
+.hoursText:last-child {
+    margin-bottom: 0;
+}
+
+.clientButton {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    color: #ffffff;
+    border: 1px solid #333333;
+    border-radius: 30px;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 200px;
+    align-self: flex-start;
+}
+
+.clientButton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.clientButton:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+    border-color: #444444;
+}
+
+.clientButton:hover::before {
+    left: 100%;
+}
+
+.clientButton:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .contactsSection {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .workingHours {
+        width: fit-content;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 36px;
+    }
+
+    .contactGrid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .contactItem {
+        padding: 15px;
+    }
+
+    .clientButton {
+        padding: 14px 28px;
+        font-size: 14px;
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 28px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .workingHours {
+        padding: 20px;
+    }
+
+    .clientButton {
+        padding: 12px 24px;
+        font-size: 13px;
+        min-width: 160px;
+        letter-spacing: 0.3px;
+    }
+}

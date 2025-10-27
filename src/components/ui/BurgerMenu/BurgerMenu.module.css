@@ -1,0 +1,95 @@
+.burger {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #404040;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.burger:hover {
+  background: #505050;
+  transform: scale(1.05);
+}
+
+.burger:active {
+  transform: scale(0.95);
+}
+
+.line {
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+/* Анимация открытия */
+.burger.open .line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burger.open .line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.burger.open .line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Эффект пульсации при открытии */
+.burger.open {
+  background: #333333;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.burger.open:hover {
+  background: #2a2a2a;
+}
+
+/* Анимация появления линий */
+.burger .line {
+  animation: lineAppear 0.3s ease-out;
+}
+
+@keyframes lineAppear {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* Эффект свечения при наведении */
+.burger::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.burger:hover::before {
+  opacity: 1;
+}

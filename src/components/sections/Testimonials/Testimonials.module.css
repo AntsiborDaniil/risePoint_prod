@@ -1,0 +1,333 @@
+.testimonials {
+    background: white;
+    padding: 80px 0 100px 0;
+    border-radius: 0 0 60px 60px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonials.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.container {
+    display: flex;
+    gap: 170px;
+    margin: 0 auto;
+    padding: 149px 116px 210px 116px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+    max-width: 210px;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.2s;
+}
+
+.header.animateIn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sectionNumber {
+    display: block;
+    font-size: 18px;
+    color: #999999;
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.sectionDescription {
+    font-size: 18px;
+    color: #9e9e9e;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 500px;
+}
+
+.testimonialContainer {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    position: relative;
+}
+
+.quoteIcon {
+    font-size: 120px;
+    font-weight: 700;
+    color: #000;
+    line-height: 0.8;
+    font-family: serif;
+    flex-shrink: 0;
+    margin-top: -20px;
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.4s;
+}
+
+.quoteIcon.animateIn {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+.testimonialContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 1300px;
+    gap: 40px;
+}
+
+.testimonialWrapper {
+    position: relative;
+    overflow: hidden;
+    min-height: 120px;
+}
+
+.testimonialText {
+    font-family: var(--font-plus-jakarta-sans);
+
+    font-size: 54px;
+    font-weight: 600;
+    color: #000;
+    line-height: 1.4;
+    margin: 0;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonialText.slideOut {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.testimonialText.slideIn {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.authorInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.6s;
+}
+
+.authorInfo.animateIn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.authorDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.authorName {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.authorCompany {
+    font-size: 14px;
+    color: #6b7280;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.authorName.fadeOut,
+.authorCompany.fadeOut {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.authorName.fadeIn,
+.authorCompany.fadeIn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nextButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: #9ca3af;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 8px 12px;
+    border-radius: 6px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition-delay: 0.8s;
+}
+
+.nextButton.animateIn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nextButton:hover {
+    color: #6b7280;
+    background: rgba(156, 163, 175, 0.1);
+    transform: translateY(-2px);
+}
+
+.nextButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: translateY(0);
+}
+
+.nextButton svg {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nextButton:hover svg {
+    transform: translateX(4px);
+}
+
+.nextButton svg.rotating {
+    animation: rotate 0.6s ease-in-out;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .testimonials {
+        padding: 60px 0 80px 0;
+        border-radius: 0 0 40px 40px;
+    }
+
+    .testimonialContainer {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .quoteIcon {
+        font-size: 80px;
+        margin-top: 0;
+        align-self: flex-start;
+    }
+
+    .testimonialText {
+        font-size: 22px;
+    }
+
+    .authorInfo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .nextButton {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials {
+        padding: 40px 0 60px 0;
+        border-radius: 0 0 30px 30px;
+    }
+
+    .header {
+        margin-bottom: 40px;
+    }
+
+    .testimonialText {
+        font-size: 18px;
+    }
+
+    .authorName {
+        font-size: 18px;
+    }
+}
+
+/* Индикаторы прогресса */
+.progressIndicators {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 60px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 1s;
+}
+
+.progressIndicators.animateIn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #d1d5db;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.indicator:hover {
+    background: #9ca3af;
+    transform: scale(1.2);
+}
+
+.indicator.active {
+    background: #374151;
+    transform: scale(1.3);
+}
+
+.indicator.active::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid #374151;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}

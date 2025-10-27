@@ -1,0 +1,72 @@
+.hero {
+  color: white;
+  padding: 8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.marqueeContainer {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 0;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translate3d(0, 0, 0);
+}
+
+.marqueeContent {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.marqueeText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2ca8fe;
+
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 231px;
+  line-height: 279.51px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+
+.marqueeDot {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.marquee {
+  display: flex;
+  animation: marqueeGPU 30s linear infinite;
+  white-space: nowrap;
+  /* Максимальная GPU оптимизация */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}
+
+@keyframes marqueeGPU {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* Убираем паузу при наведении - анимация продолжается */
+.marquee:hover {
+  animation-play-state: running;
+}

@@ -1,0 +1,162 @@
+.promoSection {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px 156px 60px 156px;
+}
+
+.backgroundRectangles {
+  display: flex;
+  gap: 21px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -11;
+  justify-content: flex-start;
+  align-items: center;
+  animation: moveRectangles 5s linear infinite;
+}
+
+.rectangleImage {
+  width: 185px;
+  height: 307px;
+}
+
+/* Основной контент */
+.contentContainer {
+  position: relative;
+  z-index: 2;
+  background-color: #f8f5f2; /* Бежевый цвет */
+  border-radius: 40px;
+  padding: 50px 60px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.textLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+
+.textLine:last-child {
+  margin-bottom: 0;
+}
+
+.text {
+  color: #2b2d40;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 87px;
+  line-height: 95.7px;
+  letter-spacing: -1.74px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.textAccent {
+  color: #6e8d9a;
+
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 87px;
+  line-height: 95.7px;
+  letter-spacing: -1.74px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.inlineImage {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.patternImage {
+  border-radius: 39.87px;
+  opacity: 0.8;
+}
+
+/* Анимация для прямоугольников */
+@keyframes moveRectangles {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-185px - 21px));
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .promoSection {
+    padding: 40px 15px;
+    min-height: 300px;
+  }
+
+  .contentContainer {
+    padding: 30px 40px;
+    border-radius: 30px;
+  }
+
+  .text {
+    font-size: 22px;
+  }
+
+  .textAccent {
+    font-size: 22px;
+  }
+
+  .rectangle {
+    width: 40px;
+    margin: 0 10px;
+  }
+
+  .inlineImage {
+    margin-left: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .promoSection {
+    padding: 30px 10px;
+    min-height: 250px;
+  }
+
+  .contentContainer {
+    padding: 25px 30px;
+    border-radius: 25px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+
+  .textAccent {
+    font-size: 18px;
+  }
+
+  .rectangle {
+    width: 30px;
+    margin: 0 8px;
+  }
+
+  .textLine {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .inlineImage {
+    margin-left: 0;
+  }
+}

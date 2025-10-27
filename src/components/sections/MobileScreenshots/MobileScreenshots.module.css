@@ -1,0 +1,145 @@
+.container {
+  background-color: #000000;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0px 5px;
+  gap: 40px;
+  position: relative;
+}
+
+.leftColumn,
+.rightColumn {
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centerColumn {
+  flex: 0 0 350px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0px;
+  width: 100%;
+}
+
+.screenshotItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screenshot {
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.screenshot:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+}
+
+.stickyPhone {
+  position: relative;
+  z-index: 10;
+  will-change: transform;
+}
+
+.phoneImage {
+  border-radius: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.phoneImage:hover {
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 25px 80px rgba(255, 255, 255, 0.25);
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .container {
+    gap: 20px;
+    padding: 60px 20px;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    flex: 0 0 250px;
+  }
+
+  .centerColumn {
+    flex: 0 0 300px;
+  }
+
+  .screenshot {
+    width: 180px;
+  }
+
+  .phoneImage {
+    width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 20px;
+  }
+
+  .leftColumn,
+  .rightColumn,
+  .centerColumn {
+    flex: none;
+    width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .screenshot {
+    width: 150px;
+  }
+
+  .phoneImage {
+    width: 200px;
+  }
+
+  .stickyPhone {
+    position: relative;
+    top: auto;
+    transform: none;
+  }
+
+  .phoneImage:hover {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .screenshot {
+    width: 180px;
+  }
+
+  .phoneImage {
+    width: 180px;
+  }
+}

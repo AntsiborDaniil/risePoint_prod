@@ -1,0 +1,358 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  display: flex;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.blurredSection {
+  flex: 1;
+  background: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+}
+
+.formSection {
+  flex: 0 0 60%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 81px 80px;
+  overflow-y: auto;
+}
+
+.closeButton {
+  color: #0d0d0d;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.closeButton:hover {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.formContent {
+  width: 100%;
+}
+
+.modalTitle {
+  color: #0d0d0d;
+
+  font-weight: 800;
+  font-style: Extra Bold;
+  font-size: 64px;
+  line-height: 88.28px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+
+  margin-bottom: 70px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.upperPart {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  color: #0d0d0d;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 24px;
+  line-height: 88.28px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+
+.input {
+  background-color: #f3f4f6;
+  color: #000000;
+
+  border: none;
+  border-radius: 8px;
+
+  height: 79px;
+
+  padding: 14px 266px 14px 35px;
+}
+
+.textarea {
+  padding: 14px 16px;
+  border: none;
+  border-radius: 8px;
+
+  height: 340px;
+  font-size: 16px;
+  color: #000000;
+  background-color: #f3f4f6;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.textarea {
+  min-height: 150px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  background-color: #e5e7eb;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #000000;
+}
+
+.formFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 90px;
+  padding-top: 32px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.emailInfo {
+  color: #000000;
+  font-weight: 200;
+  font-style: Extra Light;
+  font-size: 20px;
+  line-height: 88.28px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+
+.emailLink {
+  text-decoration: underline;
+  color: #000000;
+  transition: color 0.2s ease;
+}
+
+.emailLink:hover {
+  color: #6b7280;
+}
+
+.submitButton {
+  background-color: #4b5563;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #374151;
+  transform: translateY(-1px);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.arrow {
+  font-size: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .formSection {
+    flex: 0 0 60%;
+    padding: 60px 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    flex-direction: column;
+  }
+
+  .blurredSection {
+    flex: 0 0 40%;
+    min-height: 300px;
+  }
+
+  .formSection {
+    flex: 1;
+    padding: 40px 30px;
+  }
+
+  .modalTitle {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+
+  .formFooter {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .submitButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Адаптивные стили для левой части */
+  .minimalTitle {
+    font-size: 48px;
+    letter-spacing: 6px;
+  }
+
+  .minimalLine {
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .formSection {
+    padding: 30px 20px;
+  }
+
+  .modalTitle {
+    font-size: 24px;
+  }
+
+  .closeButton {
+    top: 20px;
+    right: 20px;
+  }
+
+  /* Стили для очень маленьких экранов */
+  .blurredSection {
+    flex: 0 0 35%;
+    min-height: 250px;
+  }
+
+  .minimalTitle {
+    font-size: 36px;
+    letter-spacing: 4px;
+  }
+
+  .minimalLine {
+    width: 50px;
+  }
+}
+
+/* Размытый серый фон */
+.blurredBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 50%, #2a2a2a 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Минималистичный контент */
+.minimalContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+.simpleText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.minimalTitle {
+  color: #ffffff;
+  font-size: 64px;
+  font-weight: 200;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 8px;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.minimalLine {
+  width: 80px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  animation: expandLine 1s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+/* Простые анимации */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expandLine {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 80px;
+    opacity: 1;
+  }
+}
