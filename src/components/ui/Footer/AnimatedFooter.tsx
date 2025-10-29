@@ -78,8 +78,8 @@ export default function AnimatedFooter() {
     );
 
     // Применяем более плавную easing функцию
-    return progress < 0.5 
-      ? 2 * progress * progress 
+    return progress < 0.5
+      ? 2 * progress * progress
       : 1 - Math.pow(-2 * progress + 2, 3) / 2; // easeInOutCubic
   };
 
@@ -125,6 +125,15 @@ export default function AnimatedFooter() {
               Telegram
             </a>
           </div>
+        </div>
+
+        <div className={styles.links}>
+          <a href="/terms" className={styles.link}>
+            Условия использования
+          </a>
+          <a href="/privacy" className={styles.link}>
+            Политика конфиденциальности
+          </a>
         </div>
 
         <div className={styles.bottom}>

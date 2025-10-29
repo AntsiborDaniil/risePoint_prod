@@ -47,7 +47,7 @@ const servicesData: ServiceCard[] = [
 
 export default function ServicesSection() {
   return (
-    <section className={styles.services} id="services">
+    <section className={styles.services}>
       <div className={styles.container}>
         {/* Заголовок секции */}
         <div className={styles.header}>

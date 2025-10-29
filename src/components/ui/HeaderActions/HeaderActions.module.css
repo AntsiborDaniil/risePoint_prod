@@ -1,0 +1,17 @@
+.actions {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  animation: actionsAppear 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+}
+
+@keyframes actionsAppear {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

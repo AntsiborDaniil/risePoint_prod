@@ -1,55 +1,63 @@
 "use client";
 
-import { useState } from "react";
-import { useModal } from "@/contexts/ModalContext";
-import BurgerMenu from "../BurgerMenu/BurgerMenu";
-import MobileMenu from "../MobileMenu/MobileMenu";
+import HeaderActions from "../HeaderActions/HeaderActions";
 import styles from "./Header.module.css";
 
 export default function Header() {
-  const { openModal } = useModal();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
+  const handleNavClick = (href: string) => {
+    setTimeout(() => {
+      if (href === "#home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }, 100);
   };
 
   return (
-    <>
-      {/* Навигационное меню - статичное */}
+    <header>
       <nav className={styles.staticNav}>
         <div className={styles.menuWrap}>
-          <a href="#services" className={styles.menuLink}>
+          <button
+            className={styles.menuLink}
+            onClick={() => handleNavClick("#services")}
+          >
+            Услуги
+          </button>
+          <button
+            className={styles.menuLink}
+            onClick={() => handleNavClick("#about")}
+          >
             О нас
-          </a>
-          <a href="#portfolio" className={styles.menuLink}>
+          </button>
+          <button
+            className={styles.menuLink}
+            onClick={() => handleNavClick("#portfolio")}
+          >
             Портфолио
-          </a>
-          <a href="#testimonials" className={styles.menuLink}>
+          </button>
+          <button
+            className={styles.menuLink}
+            onClick={() => handleNavClick("#testimonials")}
+          >
             Отзывы
-          </a>
-          <a href="#contact" className={styles.menuLink}>
+          </button>
+          <button
+            className={styles.menuLink}
+            onClick={() => handleNavClick("#contact")}
+          >
             Контакты
-          </a>
+          </button>
         </div>
       </nav>
 
-      {/* Sticky Header с кнопкой и BurgerMenu */}
-      <header className={styles.header}>
-        <div className={styles.actions}>
-          <button className={styles.ctaButton} onClick={openModal}>
-            <img src="/images/plus.png" alt="chat-icon" />
-            Оставить заявку
-          </button>
-          <BurgerMenu isOpen={isMenuOpen} onToggle={toggleMenu} />
-        </div>
-      </header>
-
-      <MobileMenu isOpen={isMenuOpen} onClose={closeMenu} />
-    </>
+      {/* Sticky Header с HeaderActions */}
+      <div className={styles.header}>
+        <HeaderActions />
+      </div>
+    </header>
   );
 }

@@ -23,10 +23,10 @@ export default function Home() {
         <main>
           <MainHero />
           <HeroSection />
-          <LazySection>
+          <LazySection id="services">
             <ServicesSection />
           </LazySection>
-          <LazySection>
+          <LazySection id="about">
             <AboutSection />
           </LazySection>
           <LazySection>
@@ -47,8 +47,10 @@ export default function Home() {
           <LazySection>
             <ContactSection />
           </LazySection>
+          <LazySection>
+            <TestimonialsSection />
+          </LazySection>
         </main>
-        <TestimonialsSection />
         <AnimatedFooter />
         <Modal />
       </div>
