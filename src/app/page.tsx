@@ -13,6 +13,7 @@ import TestimonialsSection from "../components/sections/Testimonials/Testimonial
 import ContactSection from "../components/sections/Contact/Contact";
 import { ModalProvider } from "@/contexts/ModalContext";
 import Modal from "../components/ui/Modal/Modal";
+import AbsoluteSection from "@/components/AbsoluteSection/AbsoluteSection";
 
 export default function Home() {
   return (
@@ -30,6 +31,9 @@ export default function Home() {
           </LazySection>
           <LazySection>
             <BrandMarquee />
+          </LazySection>
+          <LazySection>
+            <AbsoluteSection />
           </LazySection>
           <LazySection>
             <MobileScreenshots />
