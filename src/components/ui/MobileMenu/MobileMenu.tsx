@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useModal } from "@/contexts/ModalContext";
 import styles from "./MobileMenu.module.css";
 
@@ -9,6 +9,7 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const { openModal } = useModal();
+  const [isClosing, setIsClosing] = useState(false);
 
   const menuItems = [
     { id: "01", href: "#home", label: "Главная" },
@@ -31,33 +32,41 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     };
   }, [isOpen]);
 
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      onClose();
+    }, 500); // Длительность анимации закрытия
+  };
+
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
     e.preventDefault();
-    onClose();
+    handleClose();
 
     setTimeout(() => {
       if (href === "#home") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: "auto" });
       } else {
         const element = document.querySelector(href);
         if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+          element.scrollIntoView({ behavior: "auto", block: "start" });
         }
       }
-    }, 300);
+    }, 500);
   };
 
   const copyToClipboard = (text: string, type: string) => {
     navigator.clipboard.writeText(text);
   };
 
-  if (!isOpen) return null;
+  if (!isOpen && !isClosing) return null;
 
   return (
-    <div className={`${styles.overlay} ${isOpen ? styles.open : ""}`}>
+    <div className={`${styles.overlay} ${isOpen && !isClosing ? styles.open : ""} ${isClosing ? styles.closing : ""}`}>
       <div className={styles.menu}>
         <div className={styles.leftPanel}>
           <div className={styles.logoContainer}>
@@ -86,7 +95,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </button>
               <button
                 className={styles.closeButton}
-                onClick={onClose}
+                onClick={handleClose}
                 aria-label="Закрыть меню"
               >
                 ✕

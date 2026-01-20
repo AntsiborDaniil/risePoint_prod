@@ -15,3 +15,53 @@
     transform: translateX(0);
   }
 }
+
+/* Адаптивные стили */
+/* 1280px */
+@media (max-width: 1280px) {
+  .actions {
+    gap: 11px;
+  }
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+  .actions {
+    gap: 10px;
+  }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+  .actions {
+    gap: 9px;
+  }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+  .actions {
+    gap: 8px;
+  }
+}
+
+/* 390px */
+@media (max-width: 390px) {
+  .actions {
+    gap: 7px;
+  }
+}
+
+/* 360px */
+@media (max-width: 360px) {
+  .actions {
+    gap: 6px;
+  }
+}
+
+/* 320px */
+@media (max-width: 320px) {
+  .actions {
+    gap: 5px;
+  }
+}

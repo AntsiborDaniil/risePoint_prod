@@ -9,7 +9,6 @@
     overflow: hidden;
 }
 
-/* Блок 1: Заголовок */
 .header {
     margin-bottom: 20px;
 }
@@ -363,10 +362,7 @@
         line-height: 22px;
     }
 
-    .statItem {
-        width: 280px;
-        height: 180px;
-    }
+
 }
 
 /* 1280px */
@@ -409,11 +405,6 @@
 
     .statNumber {
         font-size: 38px;
-    }
-
-    .statItem {
-        width: 260px;
-        height: 170px;
     }
 }
 

@@ -581,6 +581,372 @@
   }
 }
 
+/* 430px - Промежуточный брейкпоинт для iPhone 14 Pro Max и подобных */
+@media (max-width: 430px) {
+  .blurredSection {
+    flex: 0 0 28%;
+    min-height: 200px;
+  }
+
+  .formSection {
+    padding: 28px 18px;
+  }
+
+  .closeButton {
+    top: 18px;
+    right: 18px;
+    width: 26px;
+    height: 26px;
+    font-size: 17px;
+  }
+
+  .modalTitle {
+    font-size: 24px;
+    line-height: 34px;
+    margin-bottom: 26px;
+  }
+
+  .form {
+    gap: 18px;
+  }
+
+  .upperPart {
+    gap: 18px;
+  }
+
+  .formGroup {
+    gap: 7px;
+  }
+
+  .label {
+    font-size: 13px;
+    line-height: 19px;
+  }
+
+  .input {
+    height: 54px;
+    padding: 10px 15px;
+    font-size: 12px;
+  }
+
+  .textarea {
+    height: 170px;
+    min-height: 110px;
+    font-size: 12px;
+    padding: 11px 13px;
+  }
+
+  .formFooter {
+    margin-top: 38px;
+    padding-top: 18px;
+    gap: 16px;
+  }
+
+  .emailInfo {
+    font-size: 12px;
+    line-height: 19px;
+  }
+
+  .submitButton {
+    padding: 11px 18px;
+    font-size: 12px;
+  }
+
+  .arrow {
+    font-size: 13px;
+  }
+
+  .minimalTitle {
+    font-size: 26px;
+    letter-spacing: 2.5px;
+  }
+
+  .minimalLine {
+    width: 38px;
+  }
+
+  .simpleText {
+    gap: 11px;
+  }
+}
+
+/* 390px - iPhone 12/13/14 Pro */
+@media (max-width: 390px) {
+  .blurredSection {
+    flex: 0 0 26%;
+    min-height: 180px;
+  }
+
+  .formSection {
+    padding: 25px 16px;
+  }
+
+  .closeButton {
+    top: 16px;
+    right: 16px;
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+  }
+
+  .modalTitle {
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 24px;
+  }
+
+  .form {
+    gap: 16px;
+  }
+
+  .upperPart {
+    gap: 16px;
+  }
+
+  .formGroup {
+    gap: 6px;
+  }
+
+  .label {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .input {
+    height: 52px;
+    padding: 9px 14px;
+    font-size: 12px;
+    border-radius: 7px;
+  }
+
+  .textarea {
+    height: 160px;
+    min-height: 100px;
+    font-size: 12px;
+    padding: 10px 12px;
+    border-radius: 7px;
+  }
+
+  .formFooter {
+    margin-top: 35px;
+    padding-top: 16px;
+    gap: 15px;
+  }
+
+  .emailInfo {
+    font-size: 11px;
+    line-height: 18px;
+  }
+
+  .submitButton {
+    padding: 10px 16px;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+
+  .arrow {
+    font-size: 12px;
+  }
+
+  .minimalTitle {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+
+  .minimalLine {
+    width: 35px;
+  }
+
+  .simpleText {
+    gap: 10px;
+  }
+}
+
+/* 360px - Galaxy S8/S9 и другие Android */
+@media (max-width: 360px) {
+  .blurredSection {
+    flex: 0 0 24%;
+    min-height: 170px;
+  }
+
+  .formSection {
+    padding: 22px 14px;
+  }
+
+  .closeButton {
+    top: 14px;
+    right: 14px;
+    width: 24px;
+    height: 24px;
+    font-size: 15px;
+  }
+
+  .modalTitle {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 22px;
+  }
+
+  .form {
+    gap: 15px;
+  }
+
+  .upperPart {
+    gap: 15px;
+  }
+
+  .formGroup {
+    gap: 6px;
+  }
+
+  .label {
+    font-size: 11px;
+    line-height: 17px;
+  }
+
+  .input {
+    height: 50px;
+    padding: 8px 13px;
+    font-size: 11px;
+    border-radius: 6px;
+  }
+
+  .textarea {
+    height: 150px;
+    min-height: 95px;
+    font-size: 11px;
+    padding: 9px 11px;
+    border-radius: 6px;
+  }
+
+  .formFooter {
+    margin-top: 32px;
+    padding-top: 15px;
+    gap: 14px;
+  }
+
+  .emailInfo {
+    font-size: 10px;
+    line-height: 17px;
+  }
+
+  .submitButton {
+    padding: 9px 15px;
+    font-size: 11px;
+    border-radius: 9px;
+  }
+
+  .arrow {
+    font-size: 11px;
+  }
+
+  .minimalTitle {
+    font-size: 22px;
+    letter-spacing: 1.5px;
+  }
+
+  .minimalLine {
+    width: 32px;
+  }
+
+  .simpleText {
+    gap: 9px;
+  }
+}
+
+/* 320px - Самые маленькие устройства */
+@media (max-width: 320px) {
+  .blurredSection {
+    flex: 0 0 22%;
+    min-height: 160px;
+  }
+
+  .formSection {
+    padding: 20px 12px;
+    overflow-y: auto;
+  }
+
+  .closeButton {
+    top: 12px;
+    right: 12px;
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+  }
+
+  .modalTitle {
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 20px;
+  }
+
+  .form {
+    gap: 14px;
+  }
+
+  .upperPart {
+    gap: 14px;
+  }
+
+  .formGroup {
+    gap: 5px;
+  }
+
+  .label {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .input {
+    height: 48px;
+    padding: 8px 12px;
+    font-size: 11px;
+    border-radius: 6px;
+  }
+
+  .textarea {
+    height: 140px;
+    min-height: 90px;
+    font-size: 11px;
+    padding: 8px 10px;
+    border-radius: 6px;
+  }
+
+  .formFooter {
+    margin-top: 30px;
+    padding-top: 14px;
+    gap: 12px;
+  }
+
+  .emailInfo {
+    font-size: 9px;
+    line-height: 16px;
+  }
+
+  .submitButton {
+    padding: 8px 14px;
+    font-size: 10px;
+    border-radius: 8px;
+  }
+
+  .arrow {
+    font-size: 10px;
+  }
+
+  .minimalTitle {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .minimalLine {
+    width: 30px;
+  }
+
+  .simpleText {
+    gap: 8px;
+  }
+}
+
 /* Размытый серый фон */
 .blurredBackground {
   position: absolute;

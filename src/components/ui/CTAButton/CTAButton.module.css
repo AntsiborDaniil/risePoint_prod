@@ -60,3 +60,98 @@
 .ctaButton:active {
   transform: translateY(0);
 }
+
+/* Адаптивные стили */
+/* 1280px */
+@media (max-width: 1280px) {
+  .ctaButton {
+    padding: 11px 16px;
+    font-size: 15px;
+  }
+
+  .ctaButton img {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+  .ctaButton {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .ctaButton img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+  .ctaButton {
+    padding: 10px 14px;
+    font-size: 14px;
+    gap: 4px;
+  }
+
+  .ctaButton img {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+  .ctaButton {
+    padding: 9px 13px;
+    font-size: 13px;
+    gap: 4px;
+  }
+
+  .ctaButton img {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* 390px */
+@media (max-width: 390px) {
+  .ctaButton {
+    padding: 8px 12px;
+    font-size: 12px;
+    gap: 3px;
+  }
+
+  .ctaButton img {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+/* 360px */
+@media (max-width: 360px) {
+  .ctaButton {
+    padding: 7px 11px;
+    font-size: 11px;
+  }
+
+  .ctaButton img {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* 320px */
+@media (max-width: 320px) {
+  .ctaButton {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  .ctaButton img {
+    width: 11px;
+    height: 11px;
+  }
+}

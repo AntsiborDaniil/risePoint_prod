@@ -4,12 +4,31 @@
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.4s ease-in-out, 
+              visibility 0.4s ease-in-out;
+  backdrop-filter: blur(0px);
+  background: rgba(0, 0, 0, 0);
 }
 
 .overlay.open {
   opacity: 1;
   visibility: visible;
+  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.1);
+  animation: overlayFadeIn 0.5s ease-in-out;
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    background: rgba(0, 0, 0, 0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.1);
+  }
 }
 
 .menu {
@@ -18,37 +37,141 @@
   display: flex;
   background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
   transform: translateX(100%);
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transition: transform 0.6s ease-in-out,
+              opacity 0.5s ease-in-out;
   position: relative;
   overflow: hidden;
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0);
 }
 
 .overlay.open .menu {
   transform: translateX(0);
+  opacity: 1;
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.25);
+}
+
+/* Анимация закрытия */
+.overlay.closing {
+  opacity: 0;
+  backdrop-filter: blur(0px);
+  background: rgba(0, 0, 0, 0);
+  animation: overlayFadeOut 0.5s ease-in-out;
+}
+
+@keyframes overlayFadeOut {
+  from {
+    opacity: 1;
+    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.1);
+  }
+  to {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+.overlay.closing .menu {
+  transform: translateX(100%);
+  opacity: 0;
+  animation: menuSlideOut 0.5s ease-in-out;
+}
+
+@keyframes menuSlideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
 }
 
 /* Left Panel - Dark Blue */
 .leftPanel {
-  width: 30%;
+  width: 25%;
   background: #2523db;
-  padding: 60px 80px;
+  padding: 60px 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
   z-index: 2;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.overlay.open .leftPanel {
+  opacity: 1;
+  animation: panelFadeIn 0.6s ease-in-out 0.2s both;
+}
+
+.overlay.closing .leftPanel {
+  opacity: 0;
+  animation: panelFadeOut 0.4s ease-in-out both;
+}
+
+@keyframes panelFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes panelFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .logoContainer {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  opacity: 0;
+}
+
+.overlay.open .logoContainer {
+  animation: fadeInSlow 0.5s ease-in-out 0.35s both;
+}
+
+@keyframes fadeInSlow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .logoImage {
   width: 122px;
   height: 123px;
   object-fit: contain;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.overlay.open .logoImage {
+  animation: logoAppearSoft 0.5s ease-in-out 0.4s both;
+}
+
+@keyframes logoAppearSoft {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .plusIcon {
@@ -115,11 +238,16 @@
   line-height: 19.2px;
   letter-spacing: -0.16px;
   vertical-align: middle;
+  opacity: 0;
+}
+
+.overlay.open .slogan {
+  animation: fadeInSlow 0.5s ease-in-out 0.5s both;
 }
 
 /* Right Panel - Light Blue */
 .rightPanel {
-  width: 70%;
+  width: 75%;
   background: #4442ed;
   padding: 60px 80px;
   display: flex;
@@ -127,6 +255,40 @@
   justify-content: space-between;
   position: relative;
   z-index: 2;
+  overflow-y: auto;
+  overflow-x: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.overlay.open .rightPanel {
+  opacity: 1;
+  animation: panelFadeIn 0.6s ease-in-out 0.25s both;
+}
+
+.overlay.closing .rightPanel {
+  opacity: 0;
+  animation: panelFadeOut 0.4s ease-in-out both;
+}
+
+/* Стилизация скроллбара для правой панели */
+.rightPanel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.rightPanel::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.rightPanel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.rightPanel::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .topSection {
@@ -134,11 +296,17 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 60px;
+  opacity: 0;
+}
+
+.overlay.open .topSection {
+  animation: fadeInSlow 0.5s ease-in-out 0.4s both;
 }
 
 .centerContainer {
   display: flex;
   justify-content: space-between;
+  gap: 40px;
   align-items: flex-end;
   position: relative;
 }
@@ -146,9 +314,22 @@
 .navigationLabel {
   font-size: 14px;
   color: #ffffff;
-  opacity: 0.9;
+  opacity: 0;
   font-weight: 400;
   letter-spacing: 0.5px;
+}
+
+.overlay.open .navigationLabel {
+  animation: fadeInLabel 0.5s ease-in-out 0.45s both;
+}
+
+@keyframes fadeInLabel {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.9;
+  }
 }
 
 .topButtons {
@@ -169,8 +350,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+}
+
+.overlay.open .requestButton {
+  animation: fadeInSlow 0.5s ease-in-out 0.5s both;
 }
 
 .requestButton:hover {
@@ -186,13 +372,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   font-size: 24px;
   color: #ffffff;
   font-weight: 300;
+  opacity: 0;
+}
+
+.overlay.open .closeButton {
+  animation: fadeInSlow 0.5s ease-in-out 0.55s both;
 }
 
 .closeButton:hover {
@@ -204,7 +395,7 @@
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 23px;
+  gap: 16px;
   flex: 1;
   justify-content: center;
   max-width: 600px;
@@ -216,23 +407,28 @@
   align-items: center;
   color: #ffffff;
   text-decoration: none;
-  padding: 16px 0;
-  transition: all 0.3s ease;
+  padding: 12px 0;
+  transition: all 0.3s ease-in-out;
   opacity: 0;
-  transform: translateX(30px);
-  animation: slideInRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-@keyframes slideInRight {
+.overlay.open .menuLink {
+  animation: linkFadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes linkFadeIn {
+  from {
+    opacity: 0;
+  }
   to {
     opacity: 1;
-    transform: translateX(0);
   }
 }
 
 .menuLink:hover {
-  transform: translateX(10px);
-  color: rgba(255, 255, 255, 0.9);
+  transform: translateX(8px);
+  color: rgba(255, 255, 255, 1);
+  opacity: 0.85;
 }
 
 .linkText {
@@ -240,17 +436,17 @@
 
   font-weight: 500;
   font-style: Medium;
-  font-size: 72.96px;
-  line-height: 88.28px;
+  font-size: 48px;
+  line-height: 58px;
   letter-spacing: 0%;
   vertical-align: middle;
 }
 
 .linkNumber {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   opacity: 0.6;
-  margin-left: 24px;
+  margin-left: 20px;
   font-family: var(--font-inter);
 }
 
@@ -260,6 +456,11 @@
   flex-direction: row;
   gap: 40px;
   align-items: flex-end;
+  opacity: 0;
+}
+
+.overlay.open .contactInfo {
+  animation: fadeInSlow 0.5s ease-in-out 0.7s both;
 }
 
 .contactInfoContainer {
@@ -279,12 +480,12 @@
 
   font-weight: 500;
   font-style: Medium;
-  font-size: 37.32px;
-  line-height: 45.16px;
+  font-size: 26px;
+  line-height: 32px;
   letter-spacing: 0%;
   vertical-align: middle;
 
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .contactValue {
@@ -296,8 +497,8 @@
   font-family: Inter;
   font-weight: 400;
   font-style: Regular;
-  font-size: 25.81px;
-  line-height: 28.39px;
+  font-size: 18px;
+  line-height: 22px;
   letter-spacing: 0%;
 }
 
@@ -326,6 +527,37 @@
   gap: 30px;
 }
 
+.overlay.open .socialIcon {
+  animation: iconFadeIn 0.4s ease-in-out both;
+}
+
+.overlay.open .socialIcon:nth-child(1) {
+  animation-delay: 0.75s;
+}
+
+.overlay.open .socialIcon:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.overlay.open .socialIcon:nth-child(3) {
+  animation-delay: 0.85s;
+}
+
+.overlay.open .socialIcon:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+@keyframes iconFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .socialIcon {
   width: 48px;
   height: 48px;
@@ -335,13 +567,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .socialIcon:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
 }
 
 /* Footer */
@@ -351,9 +583,13 @@
   gap: 8px;
   color: #ffffff;
   font-size: 12px;
-  opacity: 0.9;
+  opacity: 0;
   margin-top: auto;
   align-self: flex-end;
+}
+
+.overlay.open .footer {
+  animation: fadeInSlow 0.5s ease-in-out 0.6s both;
 }
 
 .footerSeparator {
@@ -376,71 +612,81 @@
 /* 1440px */
 @media (max-width: 1440px) {
   .leftPanel {
-    width: 32%;
-    padding: 50px 60px;
+    width: 26%;
+    padding: 50px 50px;
   }
 
   .rightPanel {
-    width: 68%;
+    width: 74%;
     padding: 50px 60px;
   }
 
+  .logoImage {
+    width: 110px;
+    height: 111px;
+  }
+
   .linkText {
-    font-size: 60px;
-    line-height: 72px;
+    font-size: 44px;
+    line-height: 54px;
+  }
+
+  .linkNumber {
+    font-size: 15px;
   }
 
   .contactLabel {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 24px;
+    line-height: 30px;
   }
 
   .contactValue {
-    font-size: 22px;
-    line-height: 26px;
+    font-size: 17px;
+    line-height: 21px;
   }
 }
 
 /* 1280px */
 @media (max-width: 1280px) {
+    
   .leftPanel {
-    width: 35%;
-    padding: 40px 50px;
+    width: 28%;
+    padding: 40px 40px;
   }
 
   .rightPanel {
-    width: 65%;
+    width: 72%;
     padding: 40px 50px;
   }
 
   .logoImage {
-    width: 100px;
-    height: 101px;
+    width: 90px;
+    height: 91px;
   }
 
   .slogan {
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 14px;
+    line-height: 17px;
   }
 
   .linkText {
-    font-size: 52px;
-    line-height: 64px;
+    font-size: 40px;
+    line-height: 50px;
   }
 
   .linkNumber {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .contactLabel {
-    font-size: 28px;
-    line-height: 36px;
-    margin-bottom: 14px;
+    font-size: 22px;
+    line-height: 28px;
+    margin-bottom: 12px;
   }
 
   .contactValue {
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .navigationLabel {
@@ -464,12 +710,12 @@
 /* 1024px */
 @media (max-width: 1024px) {
   .leftPanel {
-    width: 38%;
-    padding: 35px 40px;
+    width: 30%;
+    padding: 35px 30px;
   }
 
   .rightPanel {
-    width: 62%;
+    width: 70%;
     padding: 35px 40px;
   }
 
@@ -478,24 +724,24 @@
   }
 
   .linkText {
-    font-size: 44px;
-    line-height: 56px;
+    font-size: 36px;
+    line-height: 46px;
   }
 
   .linkNumber {
-    font-size: 16px;
-    margin-left: 20px;
+    font-size: 13px;
+    margin-left: 18px;
   }
 
   .contactLabel {
-    font-size: 24px;
-    line-height: 32px;
-    margin-bottom: 12px;
+    font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 10px;
   }
 
   .contactValue {
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 15px;
+    line-height: 19px;
   }
 
   .contactInfoContainer {
@@ -517,13 +763,13 @@
   }
 
   .logoImage {
-    width: 90px;
-    height: 91px;
+    width: 75px;
+    height: 76px;
   }
 
   .slogan {
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 13px;
+    line-height: 16px;
   }
 
   .footer {
@@ -601,13 +847,13 @@
   }
 
   .linkText {
-    font-size: 36px;
-    line-height: 44px;
+    font-size: 32px;
+    line-height: 40px;
   }
 
   .linkNumber {
-    font-size: 14px;
-    margin-left: 16px;
+    font-size: 13px;
+    margin-left: 14px;
   }
 
   .contactInfo {
@@ -622,14 +868,14 @@
   }
 
   .contactLabel {
-    font-size: 20px;
-    line-height: 28px;
-    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 9px;
   }
 
   .contactValue {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 15px;
+    line-height: 19px;
   }
 
   .copyIcon {
@@ -724,13 +970,13 @@
   }
 
   .linkText {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 26px;
+    line-height: 34px;
   }
 
   .linkNumber {
-    font-size: 12px;
-    margin-left: 12px;
+    font-size: 11px;
+    margin-left: 10px;
   }
 
   .contactInfo {
@@ -742,14 +988,14 @@
   }
 
   .contactLabel {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 17px;
+    line-height: 23px;
     margin-bottom: 8px;
   }
 
   .contactValue {
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 13px;
+    line-height: 17px;
   }
 
   .copyButton {
@@ -780,5 +1026,349 @@
     margin-top: 25px;
     gap: 6px;
     flex-wrap: wrap;
+  }
+}
+
+/* 390px - Дополнительная адаптация для маленьких мобильных */
+@media (max-width: 390px) {
+  .leftPanel {
+    padding: 20px 16px;
+  }
+
+  .rightPanel {
+    padding: 20px 16px;
+  }
+
+  .logoImage {
+    width: 60px;
+    height: 61px;
+  }
+
+  .slogan {
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 12px;
+  }
+
+  .topSection {
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+
+  .navigationLabel {
+    font-size: 10px;
+  }
+
+  .requestButton {
+    padding: 7px 14px;
+    font-size: 10px;
+    border-radius: 20px;
+  }
+
+  .plusIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .closeButton {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .topButtons {
+    gap: 10px;
+    width: 100%;
+  }
+
+  .centerContainer {
+    gap: 25px;
+  }
+
+  .nav {
+    gap: 12px;
+  }
+
+  .menuLink {
+    padding: 8px 0;
+  }
+
+  .linkText {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .linkNumber {
+    font-size: 10px;
+    margin-left: 9px;
+  }
+
+  .contactInfo {
+    gap: 20px;
+  }
+
+  .contactInfoContainer {
+    gap: 14px;
+  }
+
+  .contactLabel {
+    font-size: 15px;
+    line-height: 20px;
+    margin-bottom: 6px;
+  }
+
+  .contactValue {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .copyIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .socialIcons {
+    gap: 14px;
+  }
+
+  .socialIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .socialIconImg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .footer {
+    font-size: 9px;
+    margin-top: 20px;
+    gap: 5px;
+  }
+}
+
+/* 360px - Для очень маленьких экранов */
+@media (max-width: 360px) {
+  .leftPanel {
+    padding: 18px 14px;
+  }
+
+  .rightPanel {
+    padding: 18px 14px;
+  }
+
+  .logoImage {
+    width: 55px;
+    height: 56px;
+  }
+
+  .slogan {
+    font-size: 11px;
+    line-height: 14px;
+    margin-top: 10px;
+  }
+
+  .topSection {
+    margin-bottom: 18px;
+    gap: 8px;
+  }
+
+  .topButtons {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .requestButton {
+    padding: 6px 12px;
+    font-size: 9px;
+    gap: 6px;
+  }
+
+  .plusIcon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .closeButton {
+    width: 26px;
+    height: 26px;
+    font-size: 15px;
+  }
+
+  .centerContainer {
+    gap: 20px;
+  }
+
+  .nav {
+    gap: 10px;
+  }
+
+  .menuLink {
+    padding: 7px 0;
+  }
+
+  .linkText {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .linkNumber {
+    font-size: 9px;
+    margin-left: 8px;
+  }
+
+  .contactInfo {
+    gap: 18px;
+  }
+
+  .contactInfoContainer {
+    gap: 12px;
+  }
+
+  .contactLabel {
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 5px;
+  }
+
+  .contactValue {
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  .copyIcon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .socialIcons {
+    gap: 12px;
+  }
+
+  .socialIcon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .socialIconImg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer {
+    font-size: 8px;
+    margin-top: 18px;
+  }
+}
+
+/* 320px - Минимальный размер мобильных устройств */
+@media (max-width: 320px) {
+  .leftPanel {
+    padding: 15px 12px;
+  }
+
+  .rightPanel {
+    padding: 15px 12px;
+  }
+
+  .logoImage {
+    width: 50px;
+    height: 51px;
+  }
+
+  .slogan {
+    font-size: 10px;
+    line-height: 13px;
+    margin-top: 8px;
+  }
+
+  .topSection {
+    margin-bottom: 15px;
+  }
+
+  .requestButton {
+    padding: 5px 10px;
+    font-size: 8px;
+  }
+
+  .plusIcon {
+    width: 11px;
+    height: 11px;
+  }
+
+  .closeButton {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+
+  .centerContainer {
+    gap: 18px;
+  }
+
+  .nav {
+    gap: 8px;
+  }
+
+  .menuLink {
+    padding: 6px 0;
+  }
+
+  .linkText {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .linkNumber {
+    font-size: 8px;
+    margin-left: 6px;
+  }
+
+  .contactInfo {
+    gap: 15px;
+  }
+
+  .contactInfoContainer {
+    gap: 10px;
+  }
+
+  .contactLabel {
+    font-size: 13px;
+    line-height: 17px;
+    margin-bottom: 4px;
+  }
+
+  .contactValue {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  .copyButton {
+    padding: 2px;
+  }
+
+  .copyIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .socialIcons {
+    gap: 10px;
+  }
+
+  .socialIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .socialIconImg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .footer {
+    font-size: 8px;
+    margin-top: 15px;
   }
 }

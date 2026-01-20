@@ -169,17 +169,20 @@
   }
 
   .description {
-    font-size: 19px;
-    line-height: 27px;
-    max-width: 100%;
+    display: none;
   }
 
   .leftColumn {
-    gap: 70px;
+    gap: 0;
   }
 
   .container {
+    grid-template-columns: 1fr;
     gap: 45px;
+  }
+
+  .rightColumn {
+    width: 100%;
   }
 
   .ctaButton {
@@ -194,10 +197,6 @@
     grid-template-columns: 1fr;
     gap: 40px;
     padding: 0 16px;
-  }
-
-  .mainHeading {
-    font-size: 32px;
   }
 
   .portfolio {
@@ -217,19 +216,14 @@
 
 @media (max-width: 480px) {
   .mainHeading {
-    font-size: 28px;
+    font-size: 42px;
   }
 
   .description {
     font-size: 14px;
   }
 
-  .sectionNumber {
-    font-size: 12px;
-  }
-
   .ctaButton {
     padding: 12px 24px;
-    font-size: 14px;
   }
 }

@@ -5,7 +5,7 @@ const PortfolioGrid: React.FC = () => {
   return (
     <section className={styles.container}>
       <div className={styles.portfolioGrid}>
-        <div className={styles.gridItem}>
+        <div className={styles.gridItem} data-color="#4A90E2">
           <div className={styles.projectLink}>
             <div className={styles.imageContainer}>
               <img
@@ -33,7 +33,7 @@ const PortfolioGrid: React.FC = () => {
           </div>
         </div>
 
-        <div className={styles.gridItem}>
+        <div className={styles.gridItem} data-color="#E94B3C">
           <div className={styles.projectLink}>
             <div className={styles.imageContainer}>
               <img
@@ -44,7 +44,7 @@ const PortfolioGrid: React.FC = () => {
               <a href="https://all-vps.com/" className={styles.overlay}>
                 <div className={styles.textContainer}>
                   <h1 className={styles.projectTitle}>
-                    АЗ удобный подбор выгодного пре
+                    АЗС
                   </h1>
                   <p className={styles.projectDescription}>
                     АЗС-Удобный подбор выгодного предложения для клиентов,
@@ -61,7 +61,7 @@ const PortfolioGrid: React.FC = () => {
           </div>
         </div>
 
-        <div className={styles.gridItem}>
+        <div className={styles.gridItem} data-color="#9B59B6">
           <div className={styles.projectLink}>
             <div className={styles.imageContainer}>
               <img
@@ -81,13 +81,13 @@ const PortfolioGrid: React.FC = () => {
                   src="/images/portfolio/arrowProtfolio.png"
                   alt="arrowIcon"
                   className={styles.arrowIcon}
-                />{" "}
+                />
               </a>
             </div>
           </div>
         </div>
 
-        <div className={styles.gridItem}>
+        <div className={styles.gridItem} data-color="#F39C12">
           <div className={styles.projectLink}>
             <div className={styles.imageContainer}>
               <img
@@ -102,8 +102,7 @@ const PortfolioGrid: React.FC = () => {
                 <div className={styles.textContainer}>
                   <h1 className={styles.projectTitle}>Ренова24</h1>
                   <p className={styles.projectDescription}>
-                    Ренова24 — это современный дизайн СРМ, разработанный для
-                    крупной строительной организации, с грамотным учетом всех
+                    Ренова24 — это современный дизайн СРМ, разработанный <br />для крупной строительной организации, с грамотным учетом всех
                     атрибутов мероприятия.
                   </p>
                 </div>
@@ -116,53 +115,58 @@ const PortfolioGrid: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.projectLink}>
-        <div className={styles.imageContainer}>
-          <img
-            src="/images/portfolio/unikaAgency.png"
-            alt="Ренова24"
-            className={styles.projectImage}
-          />
-          <a href="https://unikaagency.tilda.ws/" className={styles.overlay}>
-            <div className={styles.textContainer}>
-              <h1 className={styles.projectTitle}>Unika Agency</h1>
-              <p className={styles.projectDescription}>
-                Unika Agency — это динамичное маркетинговое агентство полного
-                цикла.
-              </p>
+
+        <div className={styles.gridItem} data-color="#1ABC9C">
+          <div className={styles.projectLink}>
+            <div className={styles.imageContainer}>
+              <img
+                src="/images/portfolio/unikaAgency.png"
+                alt="Unika Agency"
+                className={styles.projectImage}
+              />
+              <a href="https://unikaagency.tilda.ws/" className={styles.overlay}>
+                <div className={styles.textContainer}>
+                  <h1 className={styles.projectTitle}>Unika Agency</h1>
+                  <p className={styles.projectDescription}>
+                    Unika Agency — это динамичное маркетинговое агентство полного
+                    цикла.
+                  </p>
+                </div>
+                <img
+                  src="/images/portfolio/arrowProtfolio.png"
+                  alt="Unika Agency"
+                  className={styles.arrowIcon}
+                />{" "}
+              </a>
             </div>
-            <img
-              src="/images/portfolio/arrowProtfolio.png"
-              alt="Unika Agency"
-              className={styles.arrowIcon}
-            />{" "}
-          </a>
+          </div>
         </div>
-      </div>
-      <div className={styles.projectLink}>
-        <div className={styles.imageContainer}>
-          <img
-            src="/images/portfolio/terminal.png"
-            alt="Unika Agency"
-            className={styles.projectImage}
-          />
-          <a href="https://terminalvnukovo.ru/" className={styles.overlay}>
-            <div className={styles.textContainer}>
-              <h1 className={styles.projectTitle}>
-                Terminal Foodhall - уютный фудкорт в Vnukovo Outlet
-              </h1>
-              <p className={styles.projectDescription}>
-                Terminal Foohall — это сайт для премиального фудхолла, созданный
-                для привлечения аудитории
-              </p>
+
+        <div className={styles.gridItem} data-color="#E67E22">
+          <div className={styles.projectLink}>
+            <div className={styles.imageContainer}>
+              <img
+                src="/images/portfolio/terminal.png"
+                alt="Terminal Foodhall"
+                className={styles.projectImage}
+              />
+              <a href="https://terminalvnukovo.ru/" className={styles.overlay}>
+                <div className={styles.textContainer}>
+                  <h1 className={styles.projectTitle}>
+                    Terminal Foodhall
+                  </h1>
+                  <p className={styles.projectDescription}>
+                    Terminal Foohall — это сайт для премиального фудхолла, <br />созданный для привлечения аудитории
+                  </p>
+                </div>
+                <img
+                  src="/images/portfolio/arrowProtfolio.png"
+                  alt="arrowIcon"
+                  className={styles.arrowIcon}
+                />
+              </a>
             </div>
-            <img
-              src="/images/portfolio/arrowProtfolio.png"
-              alt="arrowIcon"
-              className={styles.arrowIcon}
-            />
-          </a>
+          </div>
         </div>
       </div>
     </section>
