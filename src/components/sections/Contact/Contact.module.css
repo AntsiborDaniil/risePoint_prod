@@ -1,8 +1,8 @@
 .contact {
     position: relative;
-
     background: #0d0d0d;
     overflow: hidden;
+    max-width: 100%;
 }
 
 .background {
@@ -25,19 +25,24 @@
 
 .circlesImage {
     width: 443px;
-    height: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .container {
     position: relative;
     z-index: 1;
     margin: 0 auto;
-    padding: 120px 307px 130px 307px;
+    padding: 120px 156px 130px 156px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 81px;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .textSection {
@@ -106,11 +111,17 @@
     flex-shrink: 0;
 }
 
+.iconImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .contactText {
     color: #ffffff;
     font-weight: 400;
     font-size: 26.32px;
-    line-height: 32.9px;
+    line-height: 1.25;
     letter-spacing: 0%;
     vertical-align: middle;
 }
@@ -194,14 +205,109 @@
 }
 
 /* Адаптивность */
+/* 1440px */
+@media (max-width: 1440px) {
+    .container {
+        padding: 100px 100px 110px 100px;
+    }
+
+    .title {
+        font-size: 42px;
+        line-height: 1.2;
+    }
+
+    .description {
+        font-size: 42px;
+        line-height: 1.2;
+    }
+
+    .contactItem {
+        padding: 24px 80px 24px 24px;
+    }
+
+    .contactText {
+        font-size: 24px;
+        line-height: 1.25;
+    }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
+    .container {
+        padding: 90px 200px 100px 200px;
+        gap: 70px;
+    }
+
+    .title {
+        font-size: 38px;
+        line-height: 1.2;
+    }
+
+    .description {
+        font-size: 38px;
+        line-height: 1.2;
+    }
+
+    .contactGrid {
+        gap: 35px;
+    }
+
+    .contactItem {
+        padding: 22px 70px 22px 22px;
+    }
+
+    .contactText {
+        font-size: 22px;
+        line-height: 1.27;
+    }
+
+    .circlesImage {
+        width: 380px;
+    }
+}
+
+/* 1024px */
 @media (max-width: 1024px) {
+    .container {
+        padding: 80px 100px 90px 100px;
+        gap: 60px;
+    }
+
+    .title {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+
+    .description {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+
     .contactsSection {
         flex-direction: column;
         gap: 30px;
     }
 
+    .contactGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .contactItem {
+        padding: 20px 50px 20px 20px;
+    }
+
+    .contactText {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
     .workingHours {
         width: fit-content;
+    }
+
+    .circlesImage {
+        width: 320px;
     }
 }
 

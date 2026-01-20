@@ -1,6 +1,3 @@
-"use client";
-
-import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import styles from "./MobileScreenshots.module.css";
 
@@ -149,11 +146,9 @@ export default function MobileScreenshots() {
         <div className={styles.grid}>
           {leftScreenshots.map((screenshot) => (
             <div key={screenshot.id} className={styles.screenshotItem}>
-              <Image
+              <img
                 src={screenshot.src}
                 alt={screenshot.alt}
-                width={365}
-                height={770}
                 className={styles.screenshot}
                 loading="lazy"
               />
@@ -172,11 +167,9 @@ export default function MobileScreenshots() {
             transition: "transform 0.1s ease-out",
           }}
         >
-          <Image
+          <img
             src="/images/smartHome/center.png"
             alt="Hand holding smartphone with app interface"
-            width={348}
-            height={741}
             className={styles.phoneImage}
             loading="lazy"
           />
@@ -188,11 +181,9 @@ export default function MobileScreenshots() {
         <div className={styles.grid}>
           {rightScreenshots.map((screenshot) => (
             <div key={screenshot.id} className={styles.screenshotItem}>
-              <Image
+              <img
                 src={screenshot.src}
                 alt={screenshot.alt}
-                width={365}
-                height={770}
                 className={styles.screenshot}
                 loading="lazy"
               />

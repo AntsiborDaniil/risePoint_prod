@@ -7,6 +7,8 @@
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    max-width: 100%;
 }
 
 .testimonials.visible {
@@ -19,6 +21,9 @@
     gap: 170px;
     margin: 0 auto;
     padding: 149px 116px 210px 116px;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .header {
@@ -52,6 +57,7 @@
     line-height: 1.5;
     margin: 0;
     max-width: 500px;
+    overflow: hidden;
 }
 
 .testimonialContainer {
@@ -162,7 +168,7 @@
     transform: translateY(0);
 }
 
-.nextButton {
+.advanceButton {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -179,32 +185,32 @@
     transition-delay: 0.8s;
 }
 
-.nextButton.animateIn {
+.advanceButton.animateIn {
     opacity: 1;
     transform: translateY(0);
 }
 
-.nextButton:hover {
+.advanceButton:hover {
     color: #6b7280;
     background: rgba(156, 163, 175, 0.1);
     transform: translateY(-2px);
 }
 
-.nextButton:disabled {
+.advanceButton:disabled {
     opacity: 0.5;
     cursor: not-allowed;
     transform: translateY(0);
 }
 
-.nextButton svg {
+.advanceButton svg {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nextButton:hover svg {
+.advanceButton:hover svg {
     transform: translateX(4px);
 }
 
-.nextButton svg.rotating {
+.advanceButton svg.rotating {
     animation: rotate 0.6s ease-in-out;
 }
 
@@ -221,6 +227,77 @@
 }
 
 /* Responsive design */
+/* 1440px */
+@media (max-width: 1440px) {
+  .testimonials {
+    padding: 70px 0 90px 0;
+  }
+
+  .container {
+    gap: 140px;
+    padding: 130px 100px 190px 100px;
+  }
+
+  .testimonialText {
+    font-size: 48px;
+  }
+
+  .quoteIcon {
+    font-size: 110px;
+  }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
+  .testimonials {
+    padding: 65px 0 85px 0;
+  }
+
+  .container {
+    gap: 120px;
+    padding: 120px 80px 170px 80px;
+  }
+
+  .testimonialText {
+    font-size: 42px;
+  }
+
+  .quoteIcon {
+    font-size: 100px;
+  }
+
+  .header {
+    gap: 70px;
+  }
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+  .testimonials {
+    padding: 60px 0 80px 0;
+  }
+
+  .container {
+    gap: 80px;
+    padding: 100px 60px 150px 60px;
+    flex-direction: column;
+  }
+
+  .header {
+    max-width: 100%;
+    gap: 50px;
+  }
+
+  .testimonialText {
+    font-size: 36px;
+  }
+
+  .quoteIcon {
+    font-size: 90px;
+  }
+}
+
+/* 768px */
 @media (max-width: 768px) {
     .testimonials {
         padding: 60px 0 80px 0;
@@ -248,7 +325,7 @@
         gap: 20px;
     }
 
-    .nextButton {
+    .advanceButton {
         align-self: flex-end;
     }
 }

@@ -1,4 +1,3 @@
-"use client";
 
 import { useModal } from "@/contexts/ModalContext";
 import PortfolioGrid from "./PortfolioGrid";

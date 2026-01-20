@@ -1,14 +1,17 @@
 .about {
     background: #ffffff;
+    overflow: hidden;
 }
 
 .container {
-    padding: 69px 156px 0px 156px;
+    padding: 60px;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 /* Блок 1: Заголовок */
 .header {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .prefix {
@@ -26,17 +29,17 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 40px;
-    gap: 30px;
+    margin-bottom: 25px;
+    gap: 20px;
 }
 
 .heroTitle {
     color: #000000;
     font-weight: 500;
     font-style: Medium;
-    font-size: 58px;
-    line-height: 59.16px;
-    letter-spacing: -1.74px;
+    font-size: 48px;
+    line-height: 54px;
+    letter-spacing: -1.2px;
     vertical-align: middle;
 }
 
@@ -72,9 +75,9 @@
 .descriptionText {
     color: #666666;
     font-weight: 400;
-    font-size: 26px;
-    line-height: 35.88px;
-    letter-spacing: -0.26px;
+    font-size: 22px;
+    line-height: 30px;
+    letter-spacing: -0.2px;
     vertical-align: middle;
 }
 
@@ -84,7 +87,7 @@
     border-top: 1px solid #00000033;
     border-left: 1px solid #00000033;
     border-right: 1px solid #00000033;
-    margin-bottom: 60px;
+    margin-bottom: 25px;
 }
 
 /* Блок 5: Статистика и диаграмма */
@@ -92,14 +95,14 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 80px;
-    padding-bottom: 80px;
+    gap: 40px;
+    padding-bottom: 40px;
 }
 
 .descContainer {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
 }
 
 /* Левая часть - статистика */
@@ -172,6 +175,18 @@
     object-fit: contain;
     z-index: 1;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.teamImage {
+    width: 100%;
+    max-width: 625px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.teamImage:hover {
+    transform: scale(1.02);
 }
 
 .statNumber {
@@ -286,115 +301,332 @@
 }
 
 /* Адаптивность */
-@media (max-width: 1200px) {
+/* 1440px */
+@media (max-width: 1440px) {
     .container {
-        padding: 50px 80px 0px 80px;
+        padding: 50px;
     }
 
-    .heroTitle {
-        font-size: 48px;
-        line-height: 1.2;
-    }
-
-    .statsGrid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 40px 30px 0px 30px;
+    .header {
+        margin-bottom: 18px;
     }
 
     .hero {
-        flex-direction: column;
-        gap: 20px;
+        margin-bottom: 20px;
+        gap: 16px;
     }
 
     .heroTitle {
-        font-size: 36px;
-        line-height: 1.2;
-        letter-spacing: -1px;
+        font-size: 42px;
+        line-height: 48px;
+    }
+
+    .description {
+        margin-bottom: 18px;
+    }
+
+    .descriptionText {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .borderBlock {
+        margin-bottom: 22px;
     }
 
     .statsContainer {
-        flex-direction: column;
-        gap: 60px;
+        gap: 35px;
+        padding-bottom: 30px;
     }
 
-    .diagramSection {
-        flex: none;
+    .descContainer {
+        gap: 10px;
+    }
+
+    .teamImage {
+        max-width: 480px;
         width: 100%;
-        min-height: 300px;
     }
 
-    .diagram {
-        width: 250px;
-        height: 250px;
+    .statsTitle {
+        font-size: 22px;
+        margin-bottom: 18px;
+        line-height: 28px;
     }
 
-    .diagramCircle1 {
-        width: 230px;
-        height: 230px;
+    .statNumber {
+        font-size: 40px;
     }
 
-    .diagramCircle2 {
-        width: 160px;
+    .statText {
+        font-size: 15px;
+        line-height: 22px;
+    }
+
+    .statItem {
+        width: 280px;
+        height: 180px;
+    }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
+    .container {
+        padding: 40px;
+    }
+
+    .header {
+        margin-bottom: 16px;
+    }
+
+    .hero {
+        margin-bottom: 18px;
+        gap: 14px;
+    }
+
+    .heroTitle {
+        font-size: 38px;
+        line-height: 44px;
+    }
+
+    .descriptionText {
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .statsContainer {
+        gap: 30px;
+    }
+
+    .teamImage {
+        max-width: 420px;
+    }
+
+    .statsTitle {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    .statNumber {
+        font-size: 38px;
+    }
+
+    .statItem {
+        width: 260px;
+        height: 170px;
+    }
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+    .container {
+        padding: 30px;
+    }
+
+    .header {
+        margin-bottom: 14px;
+    }
+
+    .hero {
+        margin-bottom: 16px;
+        gap: 12px;
+    }
+
+    .heroTitle {
+        font-size: 34px;
+        line-height: 40px;
+    }
+
+    .descriptionText {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .statsContainer {
+        gap: 25px;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .statsTitle {
+        font-size: 18px;
+        margin-bottom: 14px;
+        line-height: 24px;
+    }
+
+    .statItem {
+        width: 100%;
+        max-width: 100%;
         height: 160px;
-    }
-
-    .diagramCircle3 {
-        width: 90px;
-        height: 90px;
     }
 
     .statNumber {
         font-size: 36px;
     }
+
+    .statText {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .teamImage {
+        max-width: 380px;
+    }
 }
 
-@media (max-width: 480px) {
+/* 768px - изображение становится в колонну снизу */
+@media (max-width: 768px) {
     .container {
-        padding: 30px 20px 0px 20px;
+        padding: 25px;
+    }
+
+    .header {
+        margin-bottom: 12px;
+    }
+
+    .hero {
+        flex-direction: column;
+        margin-bottom: 14px;
+        gap: 12px;
     }
 
     .heroTitle {
         font-size: 28px;
-        line-height: 1.3;
+        line-height: 34px;
+    }
+
+    .description {
+        margin-bottom: 12px;
+    }
+
+    .descriptionText {
+        font-size: 15px;
+        line-height: 22px;
+    }
+
+    .borderBlock {
+        margin-bottom: 18px;
+    }
+
+    .statsContainer {
+        flex-direction: column;
+        gap: 30px;
+        padding-bottom: 25px;
+    }
+
+    /* Изображение снизу - убираем order, оно будет последним */
+    .teamImage {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .descContainer {
+        /* Остается первым по умолчанию */
+    }
+
+    .statsTitle {
+        font-size: 16px;
+        margin-bottom: 12px;
+        line-height: 22px;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .statItem {
+        height: 150px;
+        padding: 10px 15px 50px 15px;
+    }
+
+    .statNumber {
+        font-size: 32px;
+    }
+
+    .statText {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    .iconImage {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    .header {
+        margin-bottom: 10px;
+    }
+
+    .hero {
+        margin-bottom: 12px;
+        gap: 10px;
+    }
+
+    .heroTitle {
+        font-size: 22px;
+        line-height: 28px;
     }
 
     .prefix {
         font-size: 16px;
     }
 
-    .statsGrid {
+    .description {
+        margin-bottom: 10px;
+    }
+
+    .descriptionText {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .borderBlock {
+        margin-bottom: 15px;
+    }
+
+    .statsContainer {
         gap: 25px;
+        padding-bottom: 20px;
     }
 
-    .diagram {
-        width: 200px;
-        height: 200px;
+    .statsTitle {
+        font-size: 14px;
+        margin-bottom: 10px;
+        line-height: 20px;
     }
 
-    .diagramCircle1 {
-        width: 180px;
-        height: 180px;
+    .statsGrid {
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 
-    .diagramCircle2 {
-        width: 120px;
-        height: 120px;
+    .statItem {
+        height: 140px;
+        padding: 8px 12px 45px 12px;
     }
 
-    .diagramCircle3 {
-        width: 60px;
-        height: 60px;
+    .statNumber {
+        font-size: 28px;
     }
 
-    .diagramLabel1,
-    .diagramLabel2,
-    .diagramLabel3 {
+    .statText {
         font-size: 12px;
+        line-height: 16px;
+    }
+
+    .iconImage {
+        width: 100px;
+        height: 100px;
     }
 }

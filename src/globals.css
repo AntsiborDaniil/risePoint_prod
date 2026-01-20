@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --font-inter: "Inter", sans-serif;
+    --font-plus-jakarta-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-inter);
+}
+
+/* Smooth scrolling для всей страницы */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Отключаем автоматическое восстановление позиции скролла браузером */
+html {
+    scroll-restoration: manual;
+}
+
+/* Оптимизация производительности для анимаций */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Улучшение производительности для hover эффектов */
+.card,
+.statItem,
+.menuLink,
+.logo,
+.heroButton,
+.imagePlaceholder {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Глобальные правила для адаптивности */
+body {
+    overflow-x: hidden;
+}
+
+/* Обеспечиваем правильную блочную структуру для всех секций */
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+section {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Предотвращаем перекрытия */
+    clear: both;
+}
+
+/* Убираем float для блочной структуры */
+section::before,
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Гарантируем, что абсолютно позиционированные элементы не выходят за пределы секции */
+section > * {
+    position: relative;
+}
+
+section > *[class*="absolute"],
+section > *[style*="position: absolute"],
+section > *[style*="position:absolute"] {
+    position: absolute !important;
+}
+
+/* Исправляем перекрытия для адаптивности */
+@media (max-width: 1024px) {
+    section {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+}

@@ -1,6 +1,3 @@
-"use client";
-
-import Image from "next/image";
 import styles from "./PromoSection.module.css";
 import { useEffect, useState } from "react";
 
@@ -19,109 +16,79 @@ export default function PromoSection() {
     <section className={styles.promoSection}>
       <div className={styles.contentContainer}>
         <div className={styles.backgroundRectangles}>
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
-          <Image
+          <img
             src="/images/promo/rectangle.png"
             alt="Rectangle"
-            width={185}
-            height={307}
             className={styles.rectangleImage}
           />
         </div>
@@ -132,11 +99,9 @@ export default function PromoSection() {
         <div className={styles.textLine}>
           <span className={styles.text}>мы поможем</span>
           <div className={styles.inlineImage}>
-            <Image
+            <img
               src="/images/promo/white-pattern.png"
               alt="Pattern"
-              width={214.77999877929688}
-              height={81.22000122070312}
               className={styles.patternImage}
             />
           </div>
@@ -144,11 +109,9 @@ export default function PromoSection() {
 
         <div className={styles.textLine}>
           <div className={styles.inlineImage}>
-            <Image
+            <img
               src="/images/promo/green-pattern.png"
               alt="Pattern"
-              width={214.77999877929688}
-              height={81.22000122070312}
               className={styles.patternImage}
             />
           </div>

@@ -1,5 +1,4 @@
 import styles from "./Services.module.css";
-import Image from "next/image";
 
 interface ServiceCard {
   id: number;
@@ -68,15 +67,11 @@ export default function ServicesSection() {
               }`}
             >
               <div className={styles.imageContainer}>
-                <Image
+                <img
                   src={service.image}
                   alt={service.title}
-                  width={535}
-                  height={530}
                   className={styles.realImage}
                   loading="lazy"
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                 />
                 {service.overlayText && (
                   <div className={styles.imageOverlay}>

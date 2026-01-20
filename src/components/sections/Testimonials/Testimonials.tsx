@@ -1,4 +1,3 @@
-"use client";
 
 import { useState, useEffect } from "react";
 import styles from "./Testimonials.module.css";
@@ -40,7 +39,7 @@ export default function TestimonialsSection() {
     setIsVisible(true);
   }, []);
 
-  const nextTestimonial = () => {
+  const advanceTestimonial = () => {
     if (isAnimating) return;
 
     setIsAnimating(true);
@@ -57,7 +56,7 @@ export default function TestimonialsSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isAnimating) {
-        nextTestimonial();
+        advanceTestimonial();
       }
     }, 8000);
 
@@ -149,10 +148,10 @@ export default function TestimonialsSection() {
                 ))}
               </div>
               <button
-                className={`${styles.nextButton} ${
+                className={`${styles.advanceButton} ${
                   isVisible ? styles.animateIn : ""
                 }`}
-                onClick={nextTestimonial}
+                onClick={advanceTestimonial}
                 disabled={isAnimating}
               >
                 <span>Далее</span>

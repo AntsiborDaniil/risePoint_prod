@@ -1,12 +1,12 @@
-import styles from "./page.module.css";
-import Link from "next/link";
+import { Link } from "react-router-dom";
+import styles from "./Privacy.module.css";
 
 export default function PrivacyPage() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.header}>
-          <Link href="/" className={styles.backButton}>
+          <Link to="/" className={styles.backButton}>
             ← Назад
           </Link>
           <h1 className={styles.title}>Политика конфиденциальности</h1>

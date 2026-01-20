@@ -1,4 +1,3 @@
-"use client";
 
 import { useModal } from "@/contexts/ModalContext";
 import styles from "./CTAButton.module.css";

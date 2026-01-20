@@ -7,6 +7,8 @@
   padding: 0px 5px;
   gap: 40px;
   position: relative;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .leftColumn,
@@ -41,8 +43,12 @@
 }
 
 .screenshot {
+  width: 100%;
+  max-width: 365px;
+  height: auto;
   border-radius: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: contain;
 }
 
 .screenshot:hover {
@@ -57,8 +63,12 @@
 }
 
 .phoneImage {
+  width: 100%;
+  max-width: 348px;
+  height: auto;
   border-radius: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: contain;
 }
 
 .phoneImage:hover {
@@ -67,27 +77,78 @@
 }
 
 /* Responsive design */
-@media (max-width: 1200px) {
+/* 1440px */
+@media (max-width: 1440px) {
   .container {
-    gap: 20px;
-    padding: 60px 20px;
+    gap: 35px;
+    padding: 80px 15px;
   }
 
   .leftColumn,
   .rightColumn {
-    flex: 0 0 250px;
+    flex: 0 0 280px;
   }
 
   .centerColumn {
-    flex: 0 0 300px;
+    flex: 0 0 330px;
   }
 
   .screenshot {
-    width: 180px;
+    max-width: 200px;
   }
 
   .phoneImage {
-    width: 250px;
+    max-width: 280px;
+  }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
+  .container {
+    gap: 30px;
+    padding: 70px 12px;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    flex: 0 0 240px;
+  }
+
+  .centerColumn {
+    flex: 0 0 280px;
+  }
+
+  .screenshot {
+    max-width: 180px;
+  }
+
+  .phoneImage {
+    max-width: 250px;
+  }
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+  .container {
+    gap: 25px;
+    padding: 60px 10px;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    flex: 0 0 220px;
+  }
+
+  .centerColumn {
+    flex: 0 0 260px;
+  }
+
+  .screenshot {
+    max-width: 160px;
+  }
+
+  .phoneImage {
+    max-width: 230px;
   }
 }
 
@@ -112,11 +173,11 @@
   }
 
   .screenshot {
-    width: 150px;
+    max-width: 150px;
   }
 
   .phoneImage {
-    width: 200px;
+    max-width: 200px;
   }
 
   .stickyPhone {
@@ -136,10 +197,10 @@
   }
 
   .screenshot {
-    width: 180px;
+    max-width: 180px;
   }
 
   .phoneImage {
-    width: 180px;
+    max-width: 180px;
   }
 }

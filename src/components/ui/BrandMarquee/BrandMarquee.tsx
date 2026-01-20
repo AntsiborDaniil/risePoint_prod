@@ -1,6 +1,3 @@
-"use client";
-
-import Image from "next/image";
 import styles from "./BrandMarquee.module.css";
 import { useEffect, useState } from "react";
 
@@ -105,15 +102,11 @@ export default function BrandMarquee() {
             <div className={styles.marquee}>
                 {brandsData.map((brand) => (
                     <div key={brand.id} className={styles.brandItem}>
-                        <Image
+                        <img
                             src={brand.logo}
                             alt={brand.alt}
-                            width={120}
-                            height={60}
                             className={styles.brandLogo}
                             loading="lazy"
-                            placeholder="blur"
-                            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                         />
                     </div>
                 ))}

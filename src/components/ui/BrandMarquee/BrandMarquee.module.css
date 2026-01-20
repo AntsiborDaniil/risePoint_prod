@@ -4,6 +4,7 @@
     border-top: 1px solid #eee;
     border-bottom: 2px solid #eee;
     position: relative;
+    max-width: 100%;
     mask-image: linear-gradient(
         to right,
         transparent,
@@ -48,6 +49,10 @@
 }
 
 .brandLogo {
+    max-width: 120px;
+    max-height: 60px;
+    width: auto;
+    height: auto;
     object-fit: contain;
     filter: grayscale(100%) brightness(1.2);
     transition: filter 0.3s ease;
@@ -67,6 +72,46 @@
 }
 
 /* Адаптивность */
+/* 1440px */
+@media (max-width: 1440px) {
+  .brandItem {
+    padding: 75px 95px;
+    height: 75px;
+  }
+
+  .brandLogo {
+    max-width: 110px;
+    max-height: 55px;
+  }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
+  .brandItem {
+    padding: 70px 85px;
+    height: 70px;
+  }
+
+  .brandLogo {
+    max-width: 100px;
+    max-height: 50px;
+  }
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+  .brandItem {
+    padding: 60px 75px;
+    height: 65px;
+  }
+
+  .brandLogo {
+    max-width: 90px;
+    max-height: 45px;
+  }
+}
+
+/* 768px */
 @media (max-width: 768px) {
     .marqueeContainer {
         padding: 20px 0;

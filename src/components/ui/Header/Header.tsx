@@ -1,4 +1,3 @@
-"use client";
 
 import HeaderActions from "../HeaderActions/HeaderActions";
 import styles from "./Header.module.css";

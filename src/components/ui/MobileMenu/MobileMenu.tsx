@@ -1,7 +1,4 @@
-"use client";
-
 import { useEffect } from "react";
-import Image from "next/image";
 import { useModal } from "@/contexts/ModalContext";
 import styles from "./MobileMenu.module.css";
 
@@ -64,7 +61,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       <div className={styles.menu}>
         <div className={styles.leftPanel}>
           <div className={styles.logoContainer}>
-            <Image src="/images/logo.png" alt="logo" width={122} height={123} />
+            <img src="/images/logo.png" alt="logo" className={styles.logoImage} />
           </div>
 
           <p className={styles.slogan}>
@@ -80,11 +77,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <span className={styles.navigationLabel}>Навигация</span>
             <div className={styles.topButtons}>
               <button className={styles.requestButton} onClick={openModal}>
-                <Image
+                      <img
                   src="/images/plus.png"
                   alt="plus"
-                  width={20}
-                  height={20}
+                        className={styles.plusIcon}
                 />
                 Оставить заявку
               </button>
@@ -123,11 +119,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                       onClick={() => copyToClipboard("@mrtnvil", "telegram")}
                       aria-label="Скопировать"
                     >
-                      <Image
+                      <img
                         src="/images/burger/copy.png"
                         alt="copy"
-                        width={24}
-                        height={24}
+                        className={styles.copyIcon}
                       />
                     </button>
                   </div>
@@ -141,11 +136,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                       onClick={() => copyToClipboard("+79148785857", "phone")}
                       aria-label="Скопировать"
                     >
-                      <Image
+                      <img
                         src="/images/burger/copy.png"
                         alt="copy"
-                        width={24}
-                        height={24}
+                        className={styles.copyIcon}
                       />
                     </button>
                   </div>
@@ -159,11 +153,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   className={styles.socialIcon}
                   aria-label="WhatsApp"
                 >
-                  <Image
+                  <img
                     src="/images/burger/whatsapp.png"
                     alt="WhatsApp"
-                    width={48}
-                    height={48}
+                    className={styles.socialIconImg}
                   />
                 </a>
                 <a
@@ -171,11 +164,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   className={styles.socialIcon}
                   aria-label="Email"
                 >
-                  <Image
+                  <img
                     src="/images/burger/gmail.png"
                     alt="Email"
-                    width={48}
-                    height={48}
+                    className={styles.socialIconImg}
                   />
                 </a>
                 <a
@@ -185,11 +177,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   className={styles.socialIcon}
                   aria-label="VK"
                 >
-                  <Image
+                  <img
                     src="/images/burger/ya.png"
                     alt="VK"
-                    width={48}
-                    height={48}
+                    className={styles.socialIconImg}
                   />
                 </a>
               </div>

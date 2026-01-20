@@ -1,5 +1,4 @@
 import styles from "./About.module.css";
-import Image from "next/image";
 
 interface StatItem {
   id: number;
@@ -86,11 +85,9 @@ export default function AboutSection() {
                       />
                     </div>
                     {stat.icon && stat.alt && (
-                      <Image
+                      <img
                         src={stat.icon}
                         alt={stat.alt}
-                        width={150}
-                        height={150}
                         className={styles.iconImage}
                       />
                     )}
@@ -101,11 +98,10 @@ export default function AboutSection() {
           </div>
 
           {/* Правая часть - диаграмма */}
-          <Image
+          <img
             src="/images/team-icon.png"
             alt="Team"
-            width={625}
-            height={625}
+            className={styles.teamImage}
           />
         </div>
       </div>

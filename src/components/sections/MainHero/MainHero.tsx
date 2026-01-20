@@ -1,17 +1,12 @@
-"use client";
-
-import Image from "next/image";
 import styles from "./MainHero.module.css";
 
 export default function MainHero() {
   return (
     <section className={styles.wrapper} id="home">
       <div className={styles.bg}>
-        <Image
+        <img
           src="/images/mainImage.png"
           alt="Фоновое изображение"
-          fill
-          priority
           className={styles.bgImage}
         />
       </div>

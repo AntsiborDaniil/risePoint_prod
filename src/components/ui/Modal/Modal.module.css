@@ -205,21 +205,200 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+/* 1440px */
+@media (max-width: 1440px) {
   .formSection {
     flex: 0 0 60%;
-    padding: 60px 60px;
+    padding: 70px 60px;
+  }
+
+  .modalTitle {
+    font-size: 56px;
+    line-height: 72px;
+    margin-bottom: 60px;
+  }
+
+  .label {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  .input {
+    height: 72px;
+    padding: 14px 220px 14px 30px;
+    font-size: 15px;
+  }
+
+  .textarea {
+    height: 300px;
+    font-size: 15px;
+  }
+
+  .emailInfo {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .minimalTitle {
+    font-size: 56px;
   }
 }
 
+/* 1280px */
+@media (max-width: 1280px) {
+  .formSection {
+    flex: 0 0 60%;
+    padding: 60px 50px;
+  }
+
+  .closeButton {
+    top: 35px;
+    right: 35px;
+  }
+
+  .modalTitle {
+    font-size: 48px;
+    line-height: 64px;
+    margin-bottom: 50px;
+  }
+
+  .form {
+    gap: 28px;
+  }
+
+  .upperPart {
+    gap: 28px;
+  }
+
+  .formGroup {
+    gap: 10px;
+  }
+
+  .label {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .input {
+    height: 68px;
+    padding: 12px 180px 12px 28px;
+    font-size: 15px;
+  }
+
+  .textarea {
+    height: 280px;
+    font-size: 15px;
+  }
+
+  .formFooter {
+    margin-top: 70px;
+    padding-top: 28px;
+  }
+
+  .emailInfo {
+    font-size: 17px;
+    line-height: 26px;
+  }
+
+  .submitButton {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+
+  .minimalTitle {
+    font-size: 48px;
+    letter-spacing: 6px;
+  }
+
+  .minimalLine {
+    width: 70px;
+  }
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+  .formSection {
+    flex: 0 0 65%;
+    padding: 50px 40px;
+  }
+
+  .closeButton {
+    top: 30px;
+    right: 30px;
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+  }
+
+  .modalTitle {
+    font-size: 40px;
+    line-height: 54px;
+    margin-bottom: 40px;
+  }
+
+  .form {
+    gap: 24px;
+  }
+
+  .upperPart {
+    gap: 24px;
+  }
+
+  .label {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .input {
+    height: 64px;
+    padding: 12px 140px 12px 24px;
+    font-size: 14px;
+  }
+
+  .textarea {
+    height: 250px;
+    min-height: 140px;
+    font-size: 14px;
+  }
+
+  .formFooter {
+    margin-top: 60px;
+    padding-top: 24px;
+  }
+
+  .emailInfo {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .submitButton {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+
+  .arrow {
+    font-size: 16px;
+  }
+
+  .minimalTitle {
+    font-size: 44px;
+    letter-spacing: 5px;
+  }
+
+  .minimalLine {
+    width: 65px;
+  }
+}
+
+/* 768px */
 @media (max-width: 768px) {
   .overlay {
     flex-direction: column;
   }
 
   .blurredSection {
-    flex: 0 0 40%;
-    min-height: 300px;
+    flex: 0 0 35%;
+    min-height: 280px;
   }
 
   .formSection {
@@ -227,53 +406,76 @@
     padding: 40px 30px;
   }
 
+  .closeButton {
+    top: 25px;
+    right: 25px;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+  }
+
   .modalTitle {
-    font-size: 28px;
+    font-size: 32px;
+    line-height: 44px;
     margin-bottom: 32px;
+  }
+
+  .form {
+    gap: 22px;
+  }
+
+  .upperPart {
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .formGroup {
+    gap: 10px;
+  }
+
+  .label {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .input {
+    height: 60px;
+    padding: 12px 20px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .textarea {
+    height: 220px;
+    min-height: 140px;
+    font-size: 14px;
   }
 
   .formFooter {
     flex-direction: column;
     gap: 20px;
     align-items: flex-start;
+    margin-top: 50px;
+    padding-top: 22px;
+  }
+
+  .emailInfo {
+    font-size: 14px;
+    line-height: 22px;
   }
 
   .submitButton {
     width: 100%;
     justify-content: center;
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+
+  .arrow {
+    font-size: 16px;
   }
 
   /* Адаптивные стили для левой части */
-  .minimalTitle {
-    font-size: 48px;
-    letter-spacing: 6px;
-  }
-
-  .minimalLine {
-    width: 60px;
-  }
-}
-
-@media (max-width: 480px) {
-  .formSection {
-    padding: 30px 20px;
-  }
-
-  .modalTitle {
-    font-size: 24px;
-  }
-
-  .closeButton {
-    top: 20px;
-    right: 20px;
-  }
-
-  /* Стили для очень маленьких экранов */
-  .blurredSection {
-    flex: 0 0 35%;
-    min-height: 250px;
-  }
-
   .minimalTitle {
     font-size: 36px;
     letter-spacing: 4px;
@@ -281,6 +483,101 @@
 
   .minimalLine {
     width: 50px;
+  }
+
+  .simpleText {
+    gap: 16px;
+  }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+  .blurredSection {
+    flex: 0 0 30%;
+    min-height: 220px;
+  }
+
+  .formSection {
+    padding: 30px 20px;
+  }
+
+  .closeButton {
+    top: 20px;
+    right: 20px;
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+  }
+
+  .modalTitle {
+    font-size: 26px;
+    line-height: 36px;
+    margin-bottom: 28px;
+  }
+
+  .form {
+    gap: 20px;
+  }
+
+  .upperPart {
+    gap: 20px;
+  }
+
+  .formGroup {
+    gap: 8px;
+  }
+
+  .label {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .input {
+    height: 56px;
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .textarea {
+    height: 180px;
+    min-height: 120px;
+    font-size: 13px;
+    padding: 12px 14px;
+  }
+
+  .formFooter {
+    margin-top: 40px;
+    padding-top: 20px;
+    gap: 18px;
+  }
+
+  .emailInfo {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .submitButton {
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+
+  .arrow {
+    font-size: 14px;
+  }
+
+  /* Стили для очень маленьких экранов */
+  .minimalTitle {
+    font-size: 28px;
+    letter-spacing: 3px;
+  }
+
+  .minimalLine {
+    width: 40px;
+    height: 1px;
+  }
+
+  .simpleText {
+    gap: 12px;
   }
 }
 

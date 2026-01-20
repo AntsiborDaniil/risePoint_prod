@@ -1,12 +1,9 @@
-.header {
-  position: fixed;
-  top: 35px;
-  right: 30px;
+header {
+  position: relative;
+  width: 100%;
+  height: 0;
   z-index: 100;
-  background: transparent;
-  animation: headerSlideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  justify-content: flex-end;
+  pointer-events: none;
 }
 
 @keyframes headerSlideDown {
@@ -20,13 +17,25 @@
   }
 }
 
+.header {
+  position: fixed;
+  top: 35px;
+  right: 30px;
+  background: transparent;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 101;
+  pointer-events: auto;
+  animation: headerSlideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .staticNav {
   position: absolute;
   top: 35px;
-  left: 0;
+  left: 30px;
   z-index: 90;
-  padding: 0px 0px 0px 471px;
   animation: headerSlideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: auto;
 }
 
 .nav {
@@ -113,4 +122,81 @@
   color: #000000;
   background-color: #f3f4f6;
   transform: translateY(-1px);
+}
+
+/* Скрываем левую навигацию на экранах меньше 1150px */
+@media (max-width: 1150px) {
+  .staticNav {
+    display: none;
+  }
+}
+
+/* 1440px */
+@media (max-width: 1440px) {
+  .header {
+    top: 32px;
+    right: 28px;
+  }
+
+  .staticNav {
+    top: 32px;
+    left: 28px;
+  }
+
+  .menuWrap {
+    gap: 42px;
+    padding: 0px 28px;
+  }
+
+  .menuLink {
+    padding: 16px 30px;
+    font-size: 14.5px;
+  }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
+  .header {
+    top: 30px;
+    right: 25px;
+  }
+
+  .staticNav {
+    top: 30px;
+    left: 25px;
+  }
+
+  .menuWrap {
+    gap: 38px;
+    padding: 0px 26px;
+  }
+
+  .menuLink {
+    padding: 15px 28px;
+    font-size: 14px;
+  }
+}
+
+/* 1024px - Tablet и меньше */
+@media (max-width: 1024px) {
+  .header {
+    top: 25px;
+    right: 20px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .header {
+    top: 20px;
+    right: 15px;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .header {
+    top: 15px;
+    right: 10px;
+  }
 }

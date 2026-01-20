@@ -3,6 +3,7 @@
   padding: 8rem;
   position: relative;
   overflow: hidden;
+  max-width: 100%;
 }
 
 .marqueeContainer {
@@ -27,16 +28,13 @@
 }
 
 .marqueeText {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #2ca8fe;
-
   font-weight: 500;
   font-style: Medium;
   font-size: 231px;
-  line-height: 279.51px;
+  line-height: 1.21;
   letter-spacing: 0%;
   vertical-align: middle;
+  color: #2ca8fe;
 }
 
 .marqueeDot {
@@ -69,4 +67,84 @@
 /* Убираем паузу при наведении - анимация продолжается */
 .marquee:hover {
   animation-play-state: running;
+}
+
+/* Адаптивность */
+/* 1440px */
+@media (max-width: 1440px) {
+  .hero {
+    padding: 7rem;
+  }
+
+  .marqueeText {
+    font-size: 200px;
+    line-height: 1.2;
+  }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
+  .hero {
+    padding: 6rem;
+  }
+
+  .marqueeText {
+    font-size: 170px;
+    line-height: 1.2;
+  }
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 5rem 4rem;
+  }
+
+  .marqueeText {
+    font-size: 140px;
+    line-height: 1.2;
+  }
+
+  .marqueeContent {
+    gap: 1.5rem;
+  }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+
+  .marqueeText {
+    font-size: 100px;
+    line-height: 1.2;
+  }
+
+  .marqueeContent {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .marqueeText {
+    font-size: 70px;
+    line-height: 1.2;
+  }
+
+  .marqueeContent {
+    gap: 0.75rem;
+    padding: 0 0.75rem;
+  }
+
+  .marqueeDot {
+    width: 6px;
+    height: 6px;
+  }
 }

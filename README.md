@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WebStudio - Веб-студия полного цикла
 
-## Getting Started
+Современный веб-сайт для веб-студии, разработанный на React + Vite.
 
-First, run the development server:
+## 🚀 Технологии
+
+- **React 19** - UI библиотека
+- **TypeScript** - типизация
+- **Vite** - сборщик и dev сервер
+- **React Router** - маршрутизация
+- **CSS Modules** - стилизация компонентов
+
+## 📦 Установка
+
+```bash
+npm install
+```
+
+## 🛠️ Разработка
+
+Запуск dev сервера:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте [http://localhost:3000](http://localhost:3000) в браузере.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Сборка
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Сборка для production:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Просмотр production сборки:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run preview
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Структура проекта
 
-## Deploy on Vercel
+```
+src/
+  ├── index.tsx          # Точка входа
+  ├── App.tsx            # Главный компонент с роутингом
+  ├── pages/             # Страницы приложения
+  │   ├── Home.tsx
+  │   ├── Privacy.tsx
+  │   └── Terms.tsx
+  ├── components/        # React компоненты
+  │   ├── sections/     # Секции страницы
+  │   └── ui/           # UI компоненты
+  ├── contexts/         # React контексты
+  └── globals.css       # Глобальные стили
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎨 Адаптивный дизайн
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Сайт полностью адаптирован для всех устройств:
+- **Desktop** (> 1024px)
+- **Tablet** (768px - 1024px)
+- **Mobile** (480px - 768px)
+- **Small Mobile** (< 480px)

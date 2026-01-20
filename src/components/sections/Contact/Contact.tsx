@@ -1,7 +1,4 @@
-"use client";
-
 import styles from "./Contact.module.css";
-import Image from "next/image";
 import { useModal } from "@/contexts/ModalContext";
 
 interface ContactMethod {
@@ -45,11 +42,9 @@ export default function ContactSection() {
     <section className={styles.contact} id="contact">
       <div className={styles.background}>
         <div className={styles.circles}>
-          <Image
+          <img
             src="/images/contact-circles.png"
             alt="Circle"
-            width={423}
-            height={100}
             className={styles.circlesImage}
           />
         </div>
@@ -86,38 +81,30 @@ export default function ContactSection() {
               >
                 <div className={styles.icon}>
                   {method.icon === "phone" && (
-                    <Image
+                    <img
                       src="/images/phone-icon.png"
                       alt="Phone"
-                      width={43}
-                      height={43}
                       className={styles.iconImage}
                     />
                   )}
                   {method.icon === "telegram" && (
-                    <Image
+                    <img
                       src="/images/telegram-icon.png"
                       alt="Telegram"
-                      width={43}
-                      height={43}
                       className={styles.iconImage}
                     />
                   )}
                   {method.icon === "email" && (
-                    <Image
+                    <img
                       src="/images/email-icon.png"
                       alt="Email"
-                      width={35}
-                      height={27}
                       className={styles.iconImage}
                     />
                   )}
                   {method.icon === "whatsapp" && (
-                    <Image
+                    <img
                       src="/images/whatsapp-icon.png"
                       alt="Whatsapp"
-                      width={43}
-                      height={43}
                       className={styles.iconImage}
                     />
                   )}

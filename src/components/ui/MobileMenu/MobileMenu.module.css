@@ -45,6 +45,30 @@
   gap: 12px;
 }
 
+.logoImage {
+  width: 122px;
+  height: 123px;
+  object-fit: contain;
+}
+
+.plusIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.copyIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.socialIconImg {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
 .logoCircle {
   width: 80px;
   height: 80px;
@@ -349,22 +373,165 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
+/* 1440px */
+@media (max-width: 1440px) {
+  .leftPanel {
+    width: 32%;
+    padding: 50px 60px;
+  }
+
+  .rightPanel {
+    width: 68%;
+    padding: 50px 60px;
+  }
+
+  .linkText {
+    font-size: 60px;
+    line-height: 72px;
+  }
+
+  .contactLabel {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .contactValue {
+    font-size: 22px;
+    line-height: 26px;
+  }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
   .leftPanel {
     width: 35%;
-    padding: 40px 60px;
+    padding: 40px 50px;
   }
 
   .rightPanel {
     width: 65%;
-    padding: 40px 60px;
+    padding: 40px 50px;
   }
 
-  .socialIcons {
-    right: 60px;
+  .logoImage {
+    width: 100px;
+    height: 101px;
+  }
+
+  .slogan {
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .linkText {
+    font-size: 52px;
+    line-height: 64px;
+  }
+
+  .linkNumber {
+    font-size: 18px;
+  }
+
+  .contactLabel {
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 14px;
+  }
+
+  .contactValue {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .navigationLabel {
+    font-size: 13px;
+  }
+
+  .requestButton {
+    padding: 10px 24px;
+    font-size: 13px;
+  }
+
+  .nav {
+    gap: 20px;
+  }
+
+  .menuLink {
+    padding: 14px 0;
   }
 }
 
+/* 1024px */
+@media (max-width: 1024px) {
+  .leftPanel {
+    width: 38%;
+    padding: 35px 40px;
+  }
+
+  .rightPanel {
+    width: 62%;
+    padding: 35px 40px;
+  }
+
+  .topSection {
+    margin-bottom: 40px;
+  }
+
+  .linkText {
+    font-size: 44px;
+    line-height: 56px;
+  }
+
+  .linkNumber {
+    font-size: 16px;
+    margin-left: 20px;
+  }
+
+  .contactLabel {
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 12px;
+  }
+
+  .contactValue {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .contactInfoContainer {
+    gap: 16px;
+  }
+
+  .socialIcons {
+    gap: 24px;
+  }
+
+  .socialIcon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .socialIconImg {
+    width: 42px;
+    height: 42px;
+  }
+
+  .logoImage {
+    width: 90px;
+    height: 91px;
+  }
+
+  .slogan {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .footer {
+    font-size: 11px;
+  }
+}
+
+/* 768px */
 @media (max-width: 768px) {
   .menu {
     flex-direction: column;
@@ -372,52 +539,246 @@
 
   .leftPanel {
     width: 100%;
-    padding: 40px 30px;
+    padding: 30px;
     min-height: auto;
   }
 
   .rightPanel {
     width: 100%;
-    padding: 40px 30px;
+    padding: 30px;
   }
 
-  .socialIcons {
-    position: static;
-    flex-direction: row;
-    transform: none;
+  .logoImage {
+    width: 80px;
+    height: 81px;
+  }
+
+  .slogan {
+    font-size: 14px;
+    line-height: 17px;
     margin-top: 20px;
-    align-self: flex-end;
-  }
-
-  .menuLink {
-    font-size: 32px;
-  }
-
-  .logoContainer {
-    margin-bottom: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .leftPanel {
-    padding: 30px 20px;
-  }
-
-  .rightPanel {
-    padding: 30px 20px;
-  }
-
-  .menuLink {
-    font-size: 28px;
   }
 
   .topSection {
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .navigationLabel {
+    font-size: 12px;
+  }
+
+  .requestButton {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  .plusIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .closeButton {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .centerContainer {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 40px;
+  }
+
+  .nav {
+    gap: 18px;
+    width: 100%;
+  }
+
+  .menuLink {
+    padding: 12px 0;
+  }
+
+  .linkText {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .linkNumber {
+    font-size: 14px;
+    margin-left: 16px;
   }
 
   .contactInfo {
+    flex-direction: column;
     align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+  }
+
+  .contactInfoContainer {
+    gap: 20px;
+  }
+
+  .contactLabel {
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 10px;
+  }
+
+  .contactValue {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .copyIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .socialIcons {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .socialIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .socialIconImg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer {
+    font-size: 11px;
+    margin-top: 30px;
+  }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+  .leftPanel {
+    padding: 25px 20px;
+  }
+
+  .rightPanel {
+    padding: 25px 20px;
+  }
+
+  .logoImage {
+    width: 70px;
+    height: 71px;
+  }
+
+  .slogan {
+    font-size: 13px;
+    line-height: 16px;
+    margin-top: 15px;
+  }
+
+  .topSection {
+    margin-bottom: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .navigationLabel {
+    font-size: 11px;
+  }
+
+  .requestButton {
+    padding: 8px 16px;
+    font-size: 11px;
+    border-radius: 24px;
+  }
+
+  .plusIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .closeButton {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .topButtons {
+    gap: 12px;
+  }
+
+  .centerContainer {
+    gap: 30px;
+  }
+
+  .nav {
+    gap: 15px;
+  }
+
+  .menuLink {
+    padding: 10px 0;
+  }
+
+  .linkText {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .linkNumber {
+    font-size: 12px;
+    margin-left: 12px;
+  }
+
+  .contactInfo {
+    gap: 25px;
+  }
+
+  .contactInfoContainer {
+    gap: 16px;
+  }
+
+  .contactLabel {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 8px;
+  }
+
+  .contactValue {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .copyButton {
+    padding: 3px;
+  }
+
+  .copyIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .socialIcons {
+    gap: 16px;
+  }
+
+  .socialIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .socialIconImg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer {
+    font-size: 10px;
+    margin-top: 25px;
+    gap: 6px;
+    flex-wrap: wrap;
   }
 }

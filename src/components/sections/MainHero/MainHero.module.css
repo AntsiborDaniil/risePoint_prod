@@ -1,8 +1,10 @@
 .wrapper {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   overflow: hidden;
   padding: 12px;
+  display: flex;
+  flex-direction: column;
 }
 
 .bg {
@@ -12,6 +14,8 @@
 }
 
 .bgImage {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 33px;
   padding: 12px;
@@ -22,7 +26,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 486px;
+  align-items: end;
+  margin-top: auto;
+  padding-bottom: 40px;
+  align-items: end;
+  flex: 1;
 }
 
 .content {
@@ -44,7 +52,7 @@
   font-style: Regular;
   font-size: 136.05px;
   line-height: 145.8px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   vertical-align: middle;
   text-transform: uppercase;
 }
@@ -54,13 +62,16 @@
   align-items: center;
   padding-left: 32px;
   gap: 41px;
+  font-size: 196.59px; /* Базовый размер для em единиц в circleBtn */
 }
 
 .circleBtn {
-  width: 99.94999694824219px;
-  height: 99.94999694824219px;
-  border-radius: 49.98px;
-  border-width: 3px;
+  /* Пропорционально размеру шрифта line2 через родительский font-size */
+  /* Оригинальный размер: 99.95px, текст: 138.59px, пропорция: 0.721 */
+  width: 5.721em;
+  height: 5.721em;
+  border-radius: 50%;
+  border-width: 2px;
 
   background-color: #fff;
   border: 2px solid #ffffff80;
@@ -69,25 +80,29 @@
   align-items: center;
   justify-content: center;
   animation: pulse 2s infinite;
+  flex-shrink: 0;
 
   img {
-    width: 18.780000686645508px;
-    height: 32.86000061035156px;
+    /* Оригинальный размер стрелки: 18.78px x 32.86px */
+    /* Расчет относительно font-size line2Row (138.59px): */
+    /* 18.78 / 138.59 = 0.135, 32.86 / 138.59 = 0.237 */
+    width: 2.135em;
+    height: 2.237em;
+    min-width: 12px;
+    min-height: 20px;
+    object-fit: contain;
   }
 }
 
 @keyframes pulse {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
   }
   50% {
     transform: scale(1.05);
-    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
   }
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
 
@@ -96,27 +111,31 @@
   font-style: Bold;
   font-size: 138.59px;
   line-height: 145.8px;
-  letter-spacing: -6.48px;
+  letter-spacing: -0.047em; /* Пропорционально размеру шрифта (~-6.48px) */
   vertical-align: middle;
   text-transform: uppercase;
 }
 .line3 {
   display: flex;
   flex-direction: row;
+  align-items: center;
 
   font-weight: 700;
   font-style: Bold;
   font-size: 125.01px;
   line-height: 131.22px;
-  letter-spacing: -5.83px;
+  letter-spacing: -0.047em; /* Пропорционально размеру шрифта (~-5.83px) */
   vertical-align: middle;
   text-transform: uppercase;
 }
 .cursor {
   background: #ffffff;
-  margin-left: 14px;
-  width: 21.860000610351562px;
-  height: 122.45999908447266px;
+  margin-left: 0.112em; /* Пропорционально размеру шрифта line3 */
+  width: 0.175em;
+  height: 0.98em;
+  min-width: 12px;
+  min-height: 60px;
+  flex-shrink: 0;
   animation: blink 1.2s infinite;
 }
 
@@ -147,7 +166,7 @@
   font-style: Medium;
   font-size: 16px;
   line-height: 19.2px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   vertical-align: middle;
 }
 
@@ -173,29 +192,242 @@
   text-decoration: none;
 }
 
-@media (max-width: 1024px) {
-  .line1 {
-    font-size: 64px;
+/* 1440px */
+@media (max-width: 1440px) {
+  .wrapper {
+    padding: 10px;
   }
-  .line2,
+
+  .contentWrap {
+    padding-bottom: 20px;
+  }
+
+  .content {
+    padding: 100px 35px 70px 35px;
+  }
+
+  .line1 {
+    font-size: 110px;
+    line-height: 1.07;
+    letter-spacing: 0;
+  }
+
+  .line2 {
+    font-size: 112px;
+    line-height: 1.07;
+    letter-spacing: -0.047em;
+  }
+
   .line3 {
-    font-size: 56px;
+    font-size: 100px;
+    line-height: 1.05;
+    letter-spacing: -0.047em;
+  }
+
+  .line2Row {
+    padding-left: 28px;
+    gap: 35px;
+    font-size: 112px; /* Синхронизируем с line2 для правильного масштабирования кружка */
+  }
+
+  /* Размеры circleBtn и cursor будут автоматически масштабироваться через em */
+
+  .thinDivider {
+    width: 850px;
+  }
+
+  .caption {
+    font-size: 15px;
+    line-height: 1.2;
+    letter-spacing: 0;
   }
 }
 
-@media (max-width: 640px) {
-  .content {
-    padding: 96px 16px 48px 16px;
+/* 1280px */
+@media (max-width: 1280px) {
+  .wrapper {
+    padding: 9px;
   }
+
+  .contentWrap {
+    padding-bottom: 0px;
+  }
+
+  .content {
+    padding: 90px 32px 65px 32px;
+  }
+
+  .line1 {
+    font-size: 95px;
+    line-height: 1.07;
+    letter-spacing: 0;
+  }
+
+  .line2 {
+    font-size: 97px;
+    line-height: 1.05;
+    letter-spacing: -0.047em;
+  }
+
+  .line3 {
+    font-size: 85px;
+    line-height: 1.06;
+    letter-spacing: -0.047em;
+  }
+
+  .line2Row {
+    padding-left: 26px;
+    gap: 32px;
+    font-size: 97px; /* Синхронизируем с line2 */
+  }
+
+  /* Размеры circleBtn и cursor будут автоматически масштабироваться через em */
+
+  .thinDivider {
+    width: 750px;
+  }
+}
+
+/* 1024px - Tablet */
+@media (max-width: 1024px) {
+  .wrapper {
+    padding: 8px;
+    min-height: auto;
+  }
+
+  .contentWrap {
+    padding-bottom: 20px;
+    margin-top: 200px;
+  }
+
+  .content {
+    padding: 80px 30px 60px 30px;
+  }
+
+  .line1 {
+    font-size: 64px;
+    line-height: 1.09;
+    letter-spacing: 0;
+  }
+
+  .line2,
+  .line3 {
+    font-size: 56px;
+    line-height: 1.07;
+    letter-spacing: -0.047em;
+  }
+
+  .line2Row {
+    padding-left: 24px;
+    gap: 30px;
+    font-size: 56px; /* Синхронизируем с line2 для правильного масштабирования кружка */
+  }
+
+  /* Размеры circleBtn и cursor будут автоматически масштабироваться через em */
+
+  .thinDivider {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .meta {
+    max-width: 100%;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 6px;
+    height: 100vh;
+    min-height: 600px;
+  }
+
+  .contentWrap {
+    flex-direction: column;
+  }
+
+  .content {
+    padding: 60px 20px 40px 20px;
+    width: 100%;
+  }
+
+  .line1 {
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: 0;
+  }
+
+  .line2,
+  .line3 {
+    font-size: 42px;
+    line-height: 46px;
+    letter-spacing: -0.047em;
+  }
+
+  .line2Row {
+    padding-left: 16px;
+    gap: 20px;
+    font-size: 42px; /* Синхронизируем с line2 */
+  }
+
+  /* Размеры circleBtn и cursor будут автоматически масштабироваться через em */
+
+  .thinDivider {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .caption {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 4px;
+    min-height: 500px;
+  }
+
+  .contentWrap {
+    margin-top: 150px;
+  }
+
+  .content {
+    padding: 40px 16px 30px 16px;
+  }
+
   .line1 {
     font-size: 36px;
+    line-height: 40px;
+    letter-spacing: 0;
   }
+
   .line2,
   .line3 {
     font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -0.047em; /* Сохраняем пропорцию */
   }
-  .circleBtn {
-    width: 40px;
-    height: 40px;
+
+  .line2Row {
+    padding-left: 12px;
+    gap: 16px;
+    font-size: 32px; /* Синхронизируем с line2 */
+  }
+
+  /* Размеры circleBtn и cursor будут автоматически масштабироваться через em */
+
+  .meta {
+    margin-top: 16px;
+  }
+
+  .caption {
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0;
   }
 }
