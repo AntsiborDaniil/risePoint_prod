@@ -4,19 +4,60 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   z-index: 9999;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  animation: fadeInOverlay 0.4s ease-out;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .blurredSection {
   flex: 1;
-  background: #0a0a0a;
+  background: rgba(10, 10, 10, 0.3);
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  animation: slideInFromLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blurredSection.closing {
+  animation: slideOutToLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutToLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 }
 
 .formSection {
@@ -26,7 +67,36 @@
   flex-direction: column;
   position: relative;
   padding: 81px 80px;
-  overflow-y: auto;
+  overflow: hidden;
+  max-height: 100vh;
+  animation: slideInFromRight 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.formSection.closing {
+  animation: slideOutToRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutToRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 }
 
 .closeButton {
@@ -56,6 +126,10 @@
 
 .formContent {
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .modalTitle {
@@ -63,12 +137,13 @@
 
   font-weight: 800;
   font-style: Extra Bold;
-  font-size: 64px;
-  line-height: 88.28px;
+  font-size: clamp(32px, 4.5vw, 64px);
+  line-height: clamp(44px, 6vw, 88.28px);
   letter-spacing: 0%;
   vertical-align: middle;
 
-  margin-bottom: 70px;
+  margin-bottom: clamp(30px, 4vw, 70px);
+  flex-shrink: 0;
 }
 
 .form {
@@ -80,54 +155,58 @@
 .upperPart {
   display: flex;
   flex-direction: row;
-  gap: 32px;
+  gap: clamp(16px, 2vw, 32px);
+  width: 100%;
+  align-items: flex-end;
+  flex-shrink: 0;
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  flex: 1;
+  min-width: 0;
 }
 
 .label {
   color: #0d0d0d;
   font-weight: 700;
   font-style: Bold;
-  font-size: 24px;
-  line-height: 88.28px;
+  font-size: clamp(14px, 1.8vw, 24px);
+  line-height: 1.2;
   letter-spacing: 0%;
   vertical-align: middle;
+  margin: 0;
 }
 
 .input {
   background-color: #f3f4f6;
   color: #000000;
-
   border: none;
   border-radius: 8px;
-
-  height: 79px;
-
-  padding: 14px 266px 14px 35px;
+  height: clamp(50px, 6vh, 79px);
+  padding: clamp(10px, 1.2vw, 14px) clamp(20px, 2.5vw, 35px);
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .textarea {
   padding: 14px 16px;
   border: none;
   border-radius: 8px;
-
-  height: 340px;
+  height: clamp(200px, 25vh, 340px);
   font-size: 16px;
   color: #000000;
   background-color: #f3f4f6;
   transition: all 0.2s ease;
   font-family: inherit;
-}
-
-.textarea {
   min-height: 150px;
-  resize: vertical;
-  font-family: inherit;
+  resize: none;
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 1;
 }
 
 .input:focus,
@@ -145,9 +224,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 90px;
-  padding-top: 32px;
+  margin-top: clamp(20px, 3vw, 40px);
+  padding-top: clamp(16px, 2vw, 24px);
   border-top: 1px solid #e5e7eb;
+  flex-shrink: 0;
 }
 
 .emailInfo {
@@ -225,13 +305,17 @@
 
   .input {
     height: 72px;
-    padding: 14px 220px 14px 30px;
+    padding: 14px 30px;
     font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .textarea {
-    height: 300px;
+    height: clamp(180px, 22vh, 300px);
     font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .emailInfo {
@@ -281,18 +365,22 @@
 
   .input {
     height: 68px;
-    padding: 12px 180px 12px 28px;
+    padding: 12px 28px;
     font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .textarea {
-    height: 280px;
+    height: clamp(160px, 20vh, 280px);
     font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .formFooter {
-    margin-top: 70px;
-    padding-top: 28px;
+    margin-top: clamp(20px, 2.5vw, 40px);
+    padding-top: clamp(14px, 1.8vw, 24px);
   }
 
   .emailInfo {
@@ -351,19 +439,23 @@
 
   .input {
     height: 64px;
-    padding: 12px 140px 12px 24px;
+    padding: 12px 24px;
     font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .textarea {
-    height: 250px;
+    height: clamp(140px, 18vh, 250px);
     min-height: 140px;
     font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .formFooter {
-    margin-top: 60px;
-    padding-top: 24px;
+    margin-top: clamp(15px, 2vw, 30px);
+    padding-top: clamp(12px, 1.5vw, 20px);
   }
 
   .emailInfo {
@@ -393,17 +485,28 @@
 /* 768px */
 @media (max-width: 768px) {
   .overlay {
-    flex-direction: column;
+    flex-direction: row;
+  }
+
+  .overlay.closing {
+    animation: fadeOutOverlay 0.6s ease-in forwards;
   }
 
   .blurredSection {
-    flex: 0 0 35%;
-    min-height: 280px;
+    display: none;
   }
 
   .formSection {
-    flex: 1;
+    flex: 1 1 100%;
+    width: 100%;
     padding: 40px 30px;
+    overflow: hidden;
+    max-height: 100vh;
+    animation: slideInFromRight 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .formSection.closing {
+    animation: slideOutToRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   .closeButton {
@@ -425,7 +528,7 @@
   }
 
   .upperPart {
-    flex-direction: column;
+    flex-direction: row;
     gap: 22px;
   }
 
@@ -446,8 +549,8 @@
   }
 
   .textarea {
-    height: 220px;
-    min-height: 140px;
+    height: clamp(120px, 16vh, 220px);
+    min-height: 120px;
     font-size: 14px;
   }
 
@@ -455,8 +558,8 @@
     flex-direction: column;
     gap: 20px;
     align-items: flex-start;
-    margin-top: 50px;
-    padding-top: 22px;
+    margin-top: clamp(12px, 1.8vw, 25px);
+    padding-top: clamp(10px, 1.5vw, 18px);
   }
 
   .emailInfo {
@@ -493,11 +596,12 @@
 /* 480px */
 @media (max-width: 480px) {
   .blurredSection {
-    flex: 0 0 30%;
-    min-height: 220px;
+    display: none;
   }
 
   .formSection {
+    flex: 1 1 100%;
+    width: 100%;
     padding: 30px 20px;
   }
 
@@ -520,11 +624,14 @@
   }
 
   .upperPart {
+    flex-direction: column;
     gap: 20px;
   }
 
   .formGroup {
     gap: 8px;
+    width: 100%;
+    flex: 1 1 100%;
   }
 
   .label {
@@ -536,18 +643,20 @@
     height: 56px;
     padding: 10px 16px;
     font-size: 13px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .textarea {
-    height: 180px;
-    min-height: 120px;
+    height: clamp(100px, 14vh, 180px);
+    min-height: 100px;
     font-size: 13px;
     padding: 12px 14px;
   }
 
   .formFooter {
-    margin-top: 40px;
-    padding-top: 20px;
+    margin-top: clamp(10px, 1.5vw, 20px);
+    padding-top: clamp(8px, 1.2vw, 16px);
     gap: 18px;
   }
 
@@ -584,11 +693,12 @@
 /* 430px - Промежуточный брейкпоинт для iPhone 14 Pro Max и подобных */
 @media (max-width: 430px) {
   .blurredSection {
-    flex: 0 0 28%;
-    min-height: 200px;
+    display: none;
   }
 
   .formSection {
+    flex: 1 1 100%;
+    width: 100%;
     padding: 28px 18px;
   }
 
@@ -630,15 +740,15 @@
   }
 
   .textarea {
-    height: 170px;
-    min-height: 110px;
+    height: clamp(90px, 12vh, 170px);
+    min-height: 90px;
     font-size: 12px;
     padding: 11px 13px;
   }
 
   .formFooter {
-    margin-top: 38px;
-    padding-top: 18px;
+    margin-top: clamp(8px, 1.2vw, 18px);
+    padding-top: clamp(6px, 1vw, 14px);
     gap: 16px;
   }
 
@@ -673,11 +783,12 @@
 /* 390px - iPhone 12/13/14 Pro */
 @media (max-width: 390px) {
   .blurredSection {
-    flex: 0 0 26%;
-    min-height: 180px;
+    display: none;
   }
 
   .formSection {
+    flex: 1 1 100%;
+    width: 100%;
     padding: 25px 16px;
   }
 
@@ -812,16 +923,16 @@
   }
 
   .textarea {
-    height: 150px;
-    min-height: 95px;
+    height: clamp(70px, 10vh, 150px);
+    min-height: 70px;
     font-size: 11px;
     padding: 9px 11px;
     border-radius: 6px;
   }
 
   .formFooter {
-    margin-top: 32px;
-    padding-top: 15px;
+    margin-top: clamp(5px, 0.8vw, 14px);
+    padding-top: clamp(4px, 0.6vw, 12px);
     gap: 14px;
   }
 
@@ -857,13 +968,15 @@
 /* 320px - Самые маленькие устройства */
 @media (max-width: 320px) {
   .blurredSection {
-    flex: 0 0 22%;
-    min-height: 160px;
+    display: none;
   }
 
   .formSection {
+    flex: 1 1 100%;
+    width: 100%;
     padding: 20px 12px;
-    overflow-y: auto;
+    overflow: hidden;
+    max-height: 100vh;
   }
 
   .closeButton {
@@ -905,16 +1018,16 @@
   }
 
   .textarea {
-    height: 140px;
-    min-height: 90px;
+    height: clamp(60px, 9vh, 140px);
+    min-height: 60px;
     font-size: 11px;
     padding: 8px 10px;
     border-radius: 6px;
   }
 
   .formFooter {
-    margin-top: 30px;
-    padding-top: 14px;
+    margin-top: clamp(4px, 0.6vw, 12px);
+    padding-top: clamp(3px, 0.5vw, 10px);
     gap: 12px;
   }
 
@@ -954,9 +1067,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 50%, #2a2a2a 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(42, 42, 42, 0.4);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
 }
 
 /* Минималистичный контент */

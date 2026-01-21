@@ -12,6 +12,15 @@ export default function Modal() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      closeModal();
+      setIsClosing(false);
+    }, 600); // Время анимации закрытия
+  };
 
   // Блокируем скролл страницы при открытии модального окна
   useEffect(() => {
@@ -23,7 +32,7 @@ export default function Modal() {
     // Обработка клавиши Escape
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        closeModal();
+        handleClose();
       }
     };
 
@@ -53,7 +62,7 @@ export default function Modal() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       console.log("Form submitted:", formData);
       alert("Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.");
-      closeModal();
+      handleClose();
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Произошла ошибка при отправке заявки. Попробуйте еще раз.");
@@ -62,27 +71,26 @@ export default function Modal() {
     }
   };
 
+  // Сброс состояния закрытия при открытии модалки
+  useEffect(() => {
+    if (isModalOpen) {
+      setIsClosing(false);
+    }
+  }, [isModalOpen]);
+
   if (!isModalOpen) return null;
 
   return (
-    <div className={styles.overlay}>
-      {/* Левая часть - максимальный минимализм */}
-      <div className={styles.blurredSection}>
-        {/* Размытый серый фон */}
+    <div className={`${styles.overlay} ${isClosing ? styles.closing : ""}`}>
+      {/* Левая часть - только блюр */}
+      <div className={`${styles.blurredSection} ${isClosing ? styles.closing : ""}`}>
+        {/* Размытый фон */}
         <div className={styles.blurredBackground}></div>
-
-        {/* Минималистичный контент */}
-        <div className={styles.minimalContent}>
-          <div className={styles.simpleText}>
-            <h2 className={styles.minimalTitle}>Create</h2>
-            <div className={styles.minimalLine}></div>
-          </div>
-        </div>
       </div>
 
       {/* Правая часть с формой */}
-      <div className={styles.formSection}>
-        <button className={styles.closeButton} onClick={closeModal}>
+      <div className={`${styles.formSection} ${isClosing ? styles.closing : ""}`}>
+        <button className={styles.closeButton} onClick={handleClose}>
           ×
         </button>
 
