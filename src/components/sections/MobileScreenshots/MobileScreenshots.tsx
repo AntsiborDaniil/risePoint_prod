@@ -79,6 +79,28 @@ export default function MobileScreenshots() {
   const [phonePosition, setPhonePosition] = useState(0);
   const containerRef = useRef<HTMLElement>(null);
   const phoneRef = useRef<HTMLDivElement>(null);
+  const leftColumnRef = useRef<HTMLDivElement>(null);
+  const centerColumnRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Синхронизируем высоту центральной колонки с левой колонкой
+    const syncHeight = () => {
+      if (leftColumnRef.current && centerColumnRef.current) {
+        const leftHeight = leftColumnRef.current.offsetHeight;
+        centerColumnRef.current.style.height = `${leftHeight}px`;
+      }
+    };
+
+    syncHeight();
+    const resizeObserver = new ResizeObserver(syncHeight);
+    if (leftColumnRef.current) {
+      resizeObserver.observe(leftColumnRef.current);
+    }
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -142,7 +164,7 @@ export default function MobileScreenshots() {
   return (
     <section ref={containerRef} className={styles.container}>
       {/* Левая колонка */}
-      <div className={styles.leftColumn}>
+      <div ref={leftColumnRef} className={styles.leftColumn}>
         <div className={styles.grid}>
           {leftScreenshots.map((screenshot) => (
             <div key={screenshot.id} className={styles.screenshotItem}>
@@ -158,13 +180,13 @@ export default function MobileScreenshots() {
       </div>
 
       {/* Центральная колонка с синхронно движущимся телефоном */}
-      <div className={styles.centerColumn}>
+      <div ref={centerColumnRef} className={styles.centerColumn}>
         <div
           ref={phoneRef}
           className={styles.stickyPhone}
           style={{
             transform: `translateY(${phonePosition}px)`,
-            transition: "transform 0.1s ease-out",
+            transition: "transform 0.3s ease-out",
           }}
         >
           <img

@@ -108,9 +108,9 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    flex: 0 0 calc(50% - 20px);
+    flex: 0 0 calc(60% - 20px);
     min-width: 0;
-    max-width: calc(50% - 20px);
+    max-width: calc(60% - 20px);
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -164,7 +164,6 @@
 
 .statItem:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
     background-color: #f8f8f8;
 }
 
@@ -196,10 +195,10 @@
 }
 
 .teamImage {
-    width: calc(50% - 20px);
-    flex: 0 0 calc(50% - 20px);
+    width: calc(40% - 20px);
+    flex: 0 0 calc(40% - 20px);
     min-width: 0;
-    max-width: calc(50% - 20px);
+    max-width: calc(40% - 20px);
     height: auto;
     object-fit: contain;
     transition: transform 0.3s ease;
@@ -362,15 +361,15 @@
 
     .descContainer {
         gap: 10px;
-        flex: 0 0 calc(50% - 17.5px);
-        max-width: calc(50% - 17.5px);
+        flex: 0 0 calc(60% - 17.5px);
+        max-width: calc(60% - 17.5px);
     }
 
     .teamImage {
-        width: calc(50% - 17.5px);
-        flex: 0 0 calc(50% - 17.5px);
+        width: calc(40% - 17.5px);
+        flex: 0 0 calc(40% - 17.5px);
         min-width: 0;
-        max-width: calc(50% - 17.5px);
+        max-width: calc(40% - 17.5px);
     }
 
     .statsTitle {
@@ -421,15 +420,15 @@
     }
 
     .descContainer {
-        flex: 0 0 calc(50% - 15px);
-        max-width: calc(50% - 15px);
+        flex: 0 0 calc(60% - 15px);
+        max-width: calc(60% - 15px);
     }
 
     .teamImage {
-        width: calc(50% - 15px);
-        flex: 0 0 calc(50% - 15px);
+        width: calc(40% - 15px);
+        flex: 0 0 calc(40% - 15px);
         min-width: 0;
-        max-width: calc(50% - 15px);
+        max-width: calc(40% - 15px);
     }
 
     .statsTitle {
@@ -513,13 +512,6 @@
     .statText {
         font-size: 14px;
         line-height: 20px;
-    }
-
-    .teamImage {
-        width: 50%;
-        flex: 1 1 50%;
-        min-width: 0;
-        max-width: 50%;
     }
 }
 
