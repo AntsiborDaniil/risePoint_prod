@@ -39,6 +39,12 @@
     transition-delay: 0.2s;
 }
 
+.sectionDescription {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
 .header.animateIn {
     opacity: 1;
     transform: translateY(0);
@@ -126,11 +132,14 @@
 .authorInfo {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: 0.6s;
+    gap: 20px;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
 .authorInfo.animateIn {
@@ -236,7 +245,11 @@
 
   .container {
     gap: 140px;
-    padding: 130px 100px 190px 100px;
+    padding: 120px 90px 180px 90px;
+  }
+
+  .header {
+    gap: 80px;
   }
 
   .testimonialText {
@@ -256,7 +269,11 @@
 
   .container {
     gap: 120px;
-    padding: 120px 80px 170px 80px;
+    padding: 100px 70px 150px 70px;
+  }
+
+  .header {
+    gap: 60px;
   }
 
   .testimonialText {
@@ -266,27 +283,28 @@
   .quoteIcon {
     font-size: 100px;
   }
-
-  .header {
-    gap: 70px;
-  }
 }
 
 /* 1024px */
 @media (max-width: 1024px) {
   .testimonials {
-    padding: 60px 0 80px 0;
+    padding: 50px 0 70px 0;
   }
 
   .container {
-    gap: 80px;
-    padding: 100px 60px 150px 60px;
+    gap: 60px;
+    padding: 80px 50px 120px 50px;
     flex-direction: column;
   }
 
   .header {
     max-width: 100%;
-    gap: 50px;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .sectionDescription {
+    max-width: 100%;
   }
 
   .testimonialText {
@@ -301,13 +319,34 @@
 /* 768px */
 @media (max-width: 768px) {
     .testimonials {
-        padding: 60px 0 80px 0;
+        padding: 40px 0 60px 0;
         border-radius: 0 0 40px 40px;
+    }
+
+    .container {
+        padding: 50px 30px 80px 30px;
+        gap: 40px;
+    }
+
+    .header {
+        max-width: 100%;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    .sectionDescription {
+        max-width: 100%;
+        display: block;
+        visibility: visible;
     }
 
     .testimonialContainer {
         flex-direction: column;
         gap: 20px;
+    }
+
+    .testimonialContent {
+        gap: 30px;
     }
 
     .quoteIcon {
@@ -321,32 +360,129 @@
     }
 
     .authorInfo {
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr auto;
+        gap: 30px;
+        width: 100%;
+    }
+
+    .authorDetails {
+        grid-row: 2;
+        grid-column: 1;
+        display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
+        justify-content: flex-start;
+    }
+
+    .progressIndicators {
+        grid-row: 1;
+        grid-column: 1 / -1;
+        gap: 10px;
+        margin-top: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
     }
 
     .advanceButton {
-        align-self: flex-end;
+        grid-row: 2;
+        grid-column: 2;
+        flex-shrink: 0;
+        align-self: center;
     }
 }
 
 @media (max-width: 480px) {
     .testimonials {
-        padding: 40px 0 60px 0;
+        padding: 30px 0 50px 0;
         border-radius: 0 0 30px 30px;
     }
 
+    .container {
+        padding: 30px 20px 50px 20px;
+        gap: 30px;
+    }
+
     .header {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
+        gap: 20px;
+    }
+
+    .sectionDescription {
+        max-width: 100%;
+        display: block;
+        visibility: visible;
+        font-size: 16px;
+    }
+
+    .sectionNumber {
+        font-size: 16px;
     }
 
     .testimonialText {
         font-size: 18px;
     }
 
+    .quoteIcon {
+        font-size: 60px;
+    }
+
+    .testimonialContent {
+        gap: 10px;
+    }
+
+    .authorInfo {
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr auto;
+        gap: 40px;
+        width: 100%;
+    }
+
+    .authorDetails {
+        grid-row: 2;
+        grid-column: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .progressIndicators {
+        grid-row: 1;
+        grid-column: 1 / -1;
+        gap: 6px;
+        margin-top: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .indicator {
+        width: 8px;
+        height: 8px;
+    }
+
+    .advanceButton {
+        grid-row: 2;
+        grid-column: 2;
+        flex-shrink: 0;
+        font-size: 14px;
+        padding: 6px 10px;
+        align-self: center;
+    }
+
     .authorName {
         font-size: 18px;
+    }
+
+    .authorCompany {
+        font-size: 12px;
     }
 }
 
@@ -355,11 +491,12 @@
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-top: 60px;
+    margin-top: 0;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: 1s;
+    flex-shrink: 0;
 }
 
 .progressIndicators.animateIn {
