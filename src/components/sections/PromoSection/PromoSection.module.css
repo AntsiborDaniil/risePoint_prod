@@ -208,11 +208,13 @@
   }
 
   .text {
-    font-size: 22px;
+    font-size: 30px;
+    text-wrap: nowrap;
   }
 
   .textAccent {
-    font-size: 22px;
+    font-size: 30px;
+    text-wrap: nowrap;
   }
 
   .rectangle {
@@ -231,27 +233,29 @@
     min-height: 250px;
   }
 
+  .textLine {
+    margin-bottom: 10px;
+  }
+
   .contentContainer {
-    padding: 25px 30px;
+    padding: 25px 10px;
     border-radius: 25px;
   }
 
   .text {
-    font-size: 18px;
+    font-size: 26px;
+    text-wrap: nowrap;
   }
 
   .textAccent {
-    font-size: 18px;
+    font-size: 26px;
+    line-height: 33.7px;
+    text-wrap: nowrap;
   }
 
   .rectangle {
     width: 30px;
     margin: 0 8px;
-  }
-
-  .textLine {
-    flex-direction: column;
-    gap: 8px;
   }
 
   .inlineImage {

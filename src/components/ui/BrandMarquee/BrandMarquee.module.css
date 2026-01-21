@@ -103,30 +103,3 @@
   }
 }
 
-/* 768px */
-@media (max-width: 768px) {
-    .marqueeContainer {
-        padding: 20px 0;
-    }
-    .brandItem {
-        height: 60px;
-        margin: 0 20px;
-        padding: 8px 15px;
-    }
-    .brandLogo {
-        width: 100px !important;
-        height: 50px !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .brandItem {
-        height: 50px;
-        margin: 0 15px;
-        padding: 5px 10px;
-    }
-    .brandLogo {
-        width: 80px !important;
-        height: 40px !important;
-    }
-}
