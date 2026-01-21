@@ -1,6 +1,9 @@
 .about {
     background: #ffffff;
     overflow: hidden;
+    position: relative;
+    z-index: 10;
+    isolation: isolate;
 }
 
 .container {

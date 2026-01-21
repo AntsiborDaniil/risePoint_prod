@@ -5,8 +5,9 @@
   padding: 31px 0px 420px 0px;
   background-color: #0d0f11;
   overflow: hidden;
-  z-index: -2;
+  z-index: 10;
   max-width: 100%;
+  isolation: isolate;
 }
 
 .mac {

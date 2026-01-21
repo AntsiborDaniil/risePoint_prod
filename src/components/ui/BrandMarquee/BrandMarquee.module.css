@@ -5,6 +5,9 @@
     border-bottom: 2px solid #eee;
     position: relative;
     max-width: 100%;
+    z-index: 10;
+    background-color: #ffffff;
+    isolation: isolate;
     mask-image: linear-gradient(
         to right,
         transparent,
