@@ -44,14 +44,15 @@
   flex-direction: row;
   gap: 15px;
   justify-content: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: stretch;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  width: 535px;
+  flex: 1 1 0;
+  min-width: 0;
   background: white;
   border-radius: 7px;
   overflow: hidden;
@@ -71,7 +72,7 @@
 
 .imageContainer {
   position: relative;
-  width: 535px;
+  width: 100%;
   height: 530px;
   display: flex;
 }
@@ -109,13 +110,15 @@
   letter-spacing: -0.4px;
   vertical-align: middle;
   text-transform: uppercase;
-  margin-bottom: 200px;
+  margin: 0;
+  flex-shrink: 0;
 }
 
 .cardDescription {
   color: #ffffffd9;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 20px;
   font-weight: 400;
   font-size: 15px;
@@ -123,9 +126,10 @@
   letter-spacing: -0.15px;
   vertical-align: middle;
   margin: 0;
+  margin-bottom: 15px;
   flex: 1;
   overflow: hidden;
-  max-height: calc(100% - 260px);
+  min-height: 0;
 }
 
 .overlayContent {
@@ -134,7 +138,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
-  margin-top: auto;
+  margin-top: 0;
+  flex-shrink: 0;
 }
 
 .overlayText {
@@ -215,9 +220,8 @@
   }
 
   .card {
-    width: calc(33.333% - 8px);
-    min-width: 350px;
-    flex: 1 1 auto;
+    flex: 1 1 0;
+    min-width: 0;
     max-width: 100%;
   }
 
@@ -230,14 +234,12 @@
   .cardTitle {
     font-size: 34px;
     line-height: 42px;
-    margin-bottom: 140px;
   }
 
   .cardDescription {
     font-size: 14px;
     line-height: 20px;
     gap: 16px;
-    max-height: calc(100% - 210px);
     overflow-y: auto;
   }
 }
@@ -267,8 +269,8 @@
   }
 
   .card {
-    width: calc(33.333% - 8px);
-    min-width: 320px;
+    flex: 1 1 0;
+    min-width: 0;
   }
 
   .imageContainer {
@@ -279,14 +281,12 @@
   .cardTitle {
     font-size: 30px;
     line-height: 38px;
-    margin-bottom: 120px;
   }
 
   .cardDescription {
     font-size: 13px;
     line-height: 20px;
     gap: 14px;
-    max-height: calc(100% - 190px);
   }
 }
 
@@ -313,12 +313,18 @@
   .cards {
     gap: 10px;
     flex-wrap: wrap;
+    flex-direction: row;
   }
 
   .card {
     width: calc(50% - 5px);
-    min-width: 300px;
+    flex: none;
+    min-width: auto;
     max-width: 100%;
+  }
+
+  .card:nth-child(3) {
+    width: 100%;
   }
 
   .imageContainer {
@@ -329,14 +335,12 @@
   .cardTitle {
     font-size: 28px;
     line-height: 36px;
-    margin-bottom: 100px;
   }
 
   .cardDescription {
     font-size: 13px;
     line-height: 20px;
     gap: 12px;
-    max-height: calc(100% - 170px);
   }
 }
 
@@ -362,24 +366,25 @@
 
   .cards {
     gap: 12px;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
   }
 
   .card {
     width: 100%;
+    flex: none;
+    min-width: auto;
     max-width: 100%;
   }
 
   .imageContainer {
     width: 100%;
-    height: 320px;
+    height: 500px;
   }
 
   .cardTitle {
     font-size: 30px;
     line-height: 1.2;
-    margin-bottom: 100px;
   }
 
   .cardDescription {
@@ -415,16 +420,24 @@
 
   .cards {
     gap: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: 100%;
+    flex: none;
+    min-width: auto;
+    max-width: 100%;
   }
 
   .imageContainer {
-    height: 280px;
+    height: 450px;
   }
 
   .cardTitle {
     font-size: 20px;
     line-height: 28px;
-    margin-bottom: 60px;
   }
 
   .overlayText {
