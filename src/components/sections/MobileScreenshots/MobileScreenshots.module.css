@@ -5,7 +5,6 @@
   align-items: flex-start;
   justify-content: space-between;
   padding: 0px 5px;
-  gap: 40px;
   position: relative;
   overflow: hidden;
   max-width: 100%;
@@ -44,7 +43,6 @@
 
 .screenshot {
   width: 365px;
-  height: 725px;
   border-radius: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   object-fit: contain;
@@ -65,7 +63,6 @@
   width: 348px;
   height: auto;
   max-height: 700px;
-  border-radius: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   object-fit: contain;
   margin: 13px 0px 13px 0px;
@@ -77,11 +74,21 @@
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
+@media (max-width: 1440px) {
   .container {
     overflow: hidden;
     padding: 0;
     gap: 0;
+    min-height: auto;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .screenshot {
+    width: 400px;
+    height: auto;
   }
 
   .leftColumn,
@@ -91,6 +98,40 @@
 
   .centerColumn {
     overflow: hidden;
+  }
+
+  .phoneImage {
+    width: 378px;
+
+    margin: 11px 0px 11px 0px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .phoneImage {
+    width: 378px;
+
+    margin: 15px 0px 15px 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  .phoneImage {
+    width: 377px;
+
+    margin: 13px 0px 13px 0px;
+  }
+}
+
+@media (max-width: 480px) {
+  .phoneImage {
+    width: 377px;
+
+    margin: 7px 0px 7px 0px;
   }
 }
 /* 1440px */

@@ -11,7 +11,7 @@ interface Screenshot {
 const leftScreenshots: Screenshot[] = [
   {
     id: 1,
-    src: "/images/smartHome/firstScreen.png",
+    src: "/images/smartHome/forth.png",
     alt: "First screen",
   },
   {
@@ -26,7 +26,7 @@ const leftScreenshots: Screenshot[] = [
   },
   {
     id: 4,
-    src: "/images/smartHome/forth.png",
+    src: "/images/smartHome/firstScreen.png",
     alt: "forth screen",
   },
   {
@@ -77,10 +77,22 @@ const rightScreenshots: Screenshot[] = [
 
 export default function MobileScreenshots() {
   const [phonePosition, setPhonePosition] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
   const containerRef = useRef<HTMLElement>(null);
   const phoneRef = useRef<HTMLDivElement>(null);
   const leftColumnRef = useRef<HTMLDivElement>(null);
   const centerColumnRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     // Синхронизируем высоту центральной колонки с левой колонкой
@@ -100,7 +112,7 @@ export default function MobileScreenshots() {
     return () => {
       resizeObserver.disconnect();
     };
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -166,16 +178,18 @@ export default function MobileScreenshots() {
       {/* Левая колонка */}
       <div ref={leftColumnRef} className={styles.leftColumn}>
         <div className={styles.grid}>
-          {leftScreenshots.map((screenshot) => (
-            <div key={screenshot.id} className={styles.screenshotItem}>
-              <img
-                src={screenshot.src}
-                alt={screenshot.alt}
-                className={styles.screenshot}
-                loading="lazy"
-              />
-            </div>
-          ))}
+          {(isMobile ? leftScreenshots.slice(0, 3) : leftScreenshots).map(
+            (screenshot) => (
+              <div key={screenshot.id} className={styles.screenshotItem}>
+                <img
+                  src={screenshot.src}
+                  alt={screenshot.alt}
+                  className={styles.screenshot}
+                  loading="lazy"
+                />
+              </div>
+            )
+          )}
         </div>
       </div>
 
@@ -201,16 +215,18 @@ export default function MobileScreenshots() {
       {/* Правая колонка */}
       <div className={styles.rightColumn}>
         <div className={styles.grid}>
-          {rightScreenshots.map((screenshot) => (
-            <div key={screenshot.id} className={styles.screenshotItem}>
-              <img
-                src={screenshot.src}
-                alt={screenshot.alt}
-                className={styles.screenshot}
-                loading="lazy"
-              />
-            </div>
-          ))}
+          {(isMobile ? rightScreenshots.slice(0, 3) : rightScreenshots).map(
+            (screenshot) => (
+              <div key={screenshot.id} className={styles.screenshotItem}>
+                <img
+                  src={screenshot.src}
+                  alt={screenshot.alt}
+                  className={styles.screenshot}
+                  loading="lazy"
+                />
+              </div>
+            )
+          )}
         </div>
       </div>
     </section>
