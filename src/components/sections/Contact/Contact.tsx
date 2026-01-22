@@ -1,3 +1,4 @@
+import { useState, useRef } from "react";
 import styles from "./Contact.module.css";
 import { useModal } from "@/contexts/ModalContext";
 
@@ -37,6 +38,21 @@ const contactMethods: ContactMethod[] = [
 
 export default function ContactSection() {
   const { openModal } = useModal();
+  const [showCopied, setShowCopied] = useState(false);
+  const emailButtonRef = useRef<HTMLAnchorElement>(null);
+
+  const handleEmailClick = async (e: React.MouseEvent<HTMLAnchorElement>, email: string) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText(email);
+      setShowCopied(true);
+      setTimeout(() => {
+        setShowCopied(false);
+      }, 2000);
+    } catch (err) {
+      console.error("Failed to copy email:", err);
+    }
+  };
 
   return (
     <section className={styles.contact} id="contact">
@@ -64,53 +80,63 @@ export default function ContactSection() {
         <div className={styles.contactsSection}>
           <div className={styles.contactGrid}>
             {contactMethods.map((method) => (
-              <a
-                key={method.id}
-                href={method.link}
-                className={styles.contactItem}
-                target={
-                  method.icon === "telegram" || method.icon === "whatsapp"
-                    ? "_blank"
-                    : undefined
-                }
-                rel={
-                  method.icon === "telegram" || method.icon === "whatsapp"
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-              >
-                <div className={styles.icon}>
-                  {method.icon === "phone" && (
-                    <img
-                      src="/images/phone-icon.png"
-                      alt="Phone"
-                      className={styles.iconImage}
-                    />
-                  )}
-                  {method.icon === "telegram" && (
-                    <img
-                      src="/images/telegram-icon.png"
-                      alt="Telegram"
-                      className={styles.iconImage}
-                    />
-                  )}
-                  {method.icon === "email" && (
-                    <img
-                      src="/images/email-icon.png"
-                      alt="Email"
-                      className={styles.iconImage}
-                    />
-                  )}
-                  {method.icon === "whatsapp" && (
-                    <img
-                      src="/images/whatsapp-icon.png"
-                      alt="Whatsapp"
-                      className={styles.iconImage}
-                    />
-                  )}
-                </div>
-                <span className={styles.contactText}>{method.text}</span>
-              </a>
+              <div key={method.id} className={styles.contactItemWrapper}>
+                <a
+                  ref={method.icon === "email" ? emailButtonRef : null}
+                  href={method.link}
+                  className={styles.contactItem}
+                  onClick={
+                    method.icon === "email"
+                      ? (e) => handleEmailClick(e, method.text)
+                      : undefined
+                  }
+                  target={
+                    method.icon === "telegram" || method.icon === "whatsapp"
+                      ? "_blank"
+                      : undefined
+                  }
+                  rel={
+                    method.icon === "telegram" || method.icon === "whatsapp"
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                >
+                  <div className={styles.icon}>
+                    {method.icon === "phone" && (
+                      <img
+                        src="/images/phone-icon.png"
+                        alt="Phone"
+                        className={styles.iconImage}
+                      />
+                    )}
+                    {method.icon === "telegram" && (
+                      <img
+                        src="/images/telegram-icon.png"
+                        alt="Telegram"
+                        className={styles.iconImage}
+                      />
+                    )}
+                    {method.icon === "email" && (
+                      <img
+                        src="/images/email-icon.png"
+                        alt="Email"
+                        className={styles.iconImage}
+                      />
+                    )}
+                    {method.icon === "whatsapp" && (
+                      <img
+                        src="/images/whatsapp-icon.png"
+                        alt="Whatsapp"
+                        className={styles.iconImage}
+                      />
+                    )}
+                  </div>
+                  <span className={styles.contactText}>{method.text}</span>
+                </a>
+                {method.icon === "email" && showCopied && (
+                  <div className={styles.copiedNotification}>Скопировано!</div>
+                )}
+              </div>
             ))}
           </div>
 
