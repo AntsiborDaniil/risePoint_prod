@@ -2,6 +2,20 @@ import React from "react";
 import styles from "./AbsoluteSection.module.css";
 
 export default function AbsoluteSection() {
+  const scrollToPortfolio = () => {
+    const portfolioSection = document.getElementById("portfolio");
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <section className={styles.absoluteSection}>
       <img
@@ -40,10 +54,12 @@ export default function AbsoluteSection() {
           серьезно и креативно.
         </h1>
         <div className={styles.buttons}>
-          <button className={styles.firstButton}>
+          <button className={styles.firstButton} onClick={scrollToPortfolio}>
             Посмотреть наше портфолио
           </button>
-          <button className={styles.secondButton}>Свяжитесь с нами</button>
+          <button className={styles.secondButton} onClick={scrollToContact}>
+            Свяжитесь с нами
+          </button>
         </div>
       </div>
     </section>
