@@ -10,6 +10,7 @@ interface MobileMenuProps {
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const { openModal } = useModal();
   const [isClosing, setIsClosing] = useState(false);
+  const [showCopied, setShowCopied] = useState(false);
 
   const menuItems = [
     { id: "01", href: "#home", label: "Главная" },
@@ -61,6 +62,19 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
   const copyToClipboard = (text: string, type: string) => {
     navigator.clipboard.writeText(text);
+  };
+
+  const handleEmailClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText("risepoint.agency@gmail.com");
+      setShowCopied(true);
+      setTimeout(() => {
+        setShowCopied(false);
+      }, 2000);
+    } catch (err) {
+      console.error("Failed to copy email:", err);
+    }
   };
 
   if (!isOpen && !isClosing) return null;
@@ -172,6 +186,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   href="mailto:risepoint.agency@gmail.com"
                   className={styles.socialIcon}
                   aria-label="Email"
+                  onClick={handleEmailClick}
                 >
                   <img
                     src="/images/burger/gmail.png"
@@ -204,6 +219,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </div>
         </div>
       </div>
+      {showCopied && (
+        <div className={styles.copiedNotification}>Скопировано!</div>
+      )}
     </div>
   );
 }
