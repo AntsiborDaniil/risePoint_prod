@@ -5,7 +5,6 @@ import HeroSection from "../components/sections/Hero/Hero";
 import MainHero from "@/components/sections/MainHero/MainHero";
 import AboutSection from "@/components/sections/About/About";
 import PortfolioSection from "../components/sections/Portfolio/Portfolio";
-import LazySection from "../components/ui/LazySection/LazySection";
 import BrandMarquee from "../components/ui/BrandMarquee/BrandMarquee";
 import MobileScreenshots from "../components/sections/MobileScreenshots/MobileScreenshots";
 import PromoSection from "../components/sections/PromoSection/PromoSection";
@@ -25,33 +24,15 @@ export default function Home() {
         <main>
           <MainHero />
           <HeroSection />
-          <LazySection id="services">
-            <ServicesSection />
-          </LazySection>
-          <LazySection id="about">
-            <AboutSection />
-          </LazySection>
-          <LazySection>
-            <BrandMarquee />
-          </LazySection>
-          <LazySection>
-            <AbsoluteSection />
-          </LazySection>
-          <LazySection>
-            <MobileScreenshots />
-          </LazySection>
-          <LazySection>
-            <PortfolioSection />
-          </LazySection>
-          <LazySection>
-            <PromoSection />
-          </LazySection>
-          <LazySection>
-            <ContactSection />
-          </LazySection>
-          <LazySection>
-            <TestimonialsSection />
-          </LazySection>
+          <ServicesSection />
+          <AboutSection />
+          <BrandMarquee />
+          <AbsoluteSection />
+          <MobileScreenshots />
+          <PortfolioSection />
+          <PromoSection />
+          <ContactSection />
+          <TestimonialsSection />
         </main>
         <AnimatedFooter />
         <Modal />

@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 31px 0px 420px 0px;
+  padding: 31px 0px 220px 0px;
   background-color: #0d0f11;
   overflow: hidden;
   z-index: 10;
@@ -12,14 +12,81 @@
 
 .mac {
   position: absolute;
-  width: 1096px;
+  width: 896px;
   max-width: 100%;
   height: auto;
-  bottom: 320px;
-  left: 315px;
+  bottom: 240px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1;
   object-fit: contain;
 }
+
+.lowerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 60px;
+    margin-right: 60px;
+  
+    .textBlock {
+      max-width: 551px;
+      color: #ffffffde;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 21px;
+      line-height: 1.15;
+      letter-spacing: -0.21px;
+      vertical-align: middle;
+    }
+  
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 6px;
+  
+      .firstButton {
+        background-color: #e8e8e8;
+        color: #000000;
+        border: none;
+  
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 17px;
+        line-height: 20.4px;
+        letter-spacing: -0.51px;
+        text-align: center;
+        vertical-align: middle;
+  
+        padding-top: 4.5px;
+        padding-right: 15.5px;
+        padding-bottom: 4.5px;
+        padding-left: 15.5px;
+        border-radius: 50px;
+      }
+  
+      .secondButton {
+        color: #ffffff;
+        background-color: #505050;
+        border: none;
+  
+  
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 17px;
+        line-height: 20.4px;
+        letter-spacing: -0.51px;
+        text-align: center;
+        vertical-align: middle;
+  
+        padding-top: 4.5px;
+        padding-right: 15.5px;
+        padding-bottom: 4.5px;
+        padding-left: 15.5px;
+        border-radius: 50px;
+      }
+    }
+  }
 
 .line {
   position: absolute;
@@ -36,12 +103,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-left: 156px;
-  margin-right: 156px;
+  margin-left: 60px;
+  margin-right: 60px;
 
   font-weight: 400;
   font-style: Regular;
-  font-size: 108px;
+  font-size: 58px;
   line-height: 1.2;
   letter-spacing: 0%;
   vertical-align: middle;
@@ -105,159 +172,40 @@
   }
 }
 
-/* Адаптивность */
-/* 1440px */
-@media (max-width: 1440px) {
-  .absoluteSection {
-    padding: 31px 0px 380px 0px;
-  }
+@media (max-width: 1200px) {
+    .lowerContainer {
+        display: none;
+    }
 
-  .mac {
-    width: 950px;
-    height: 656px;
-    bottom: 300px;
-    left: 250px;
-  }
-
-  .upperContainer {
-    margin-left: 120px;
-    margin-right: 120px;
-  }
-
-  .mac {
-    max-width: 950px;
-    left: 200px;
-  }
-
-  .webText {
-    font-size: 95px;
-    line-height: 1.2;
-  }
-
-  .stars {
-    font-size: 150px;
-    line-height: 1.2;
-  }
-
-  .marqueeText h1 {
-    font-size: 185px;
-    line-height: 1.2;
-  }
-
-  .lowerContainer {
-    margin-left: 120px;
-    margin-right: 120px;
-  }
-
-  .textBlock {
-    font-size: 20px;
-    line-height: 1.15;
-  }
+    .mac {
+        bottom: 170px;
+    }
 }
 
-/* 1280px */
-@media (max-width: 1280px) {
-  .absoluteSection {
-    padding: 31px 0px 350px 0px;
-  }
-
-  .mac {
-    max-width: 850px;
-    left: 150px;
-  }
-
-  .upperContainer {
-    margin-left: 100px;
-    margin-right: 100px;
-  }
-
-  .webText {
-    font-size: 82px;
-    line-height: 1.2;
-  }
-
-  .stars {
-    font-size: 130px;
-    line-height: 1.2;
-  }
-
-  .marqueeText h1 {
-    font-size: 160px;
-    line-height: 1.2;
-  }
-
-  .lowerContainer {
-    margin-left: 100px;
-    margin-right: 100px;
-  }
-
-  .textBlock {
-    font-size: 19px;
-    line-height: 1.16;
-    max-width: 480px;
-  }
-}
-
-/* 1024px */
 @media (max-width: 1024px) {
-  .absoluteSection {
-    padding: 31px 0px 320px 0px;
-  }
+    .upperContainer {
+        font-size: 38px;
+    }
 
-  .mac {
-    max-width: 700px;
-    left: 100px;
-  }
+    .stars {
+        font-size: 100px;
+    }
 
-  .upperContainer {
-    margin-left: 60px;
-    margin-right: 60px;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .webText {
-    font-size: 68px;
-    line-height: 1.2;
-    max-width: 100%;
-  }
-
-  .stars {
-    font-size: 110px;
-    line-height: 1.2;
-  }
-
-  .marqueeText h1 {
-    font-size: 140px;
-    line-height: 1.2;
-  }
-
-  .marqueeContainer {
-    margin-bottom: 180px;
-  }
-
-  .lowerContainer {
-    margin-left: 60px;
-    margin-right: 60px;
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .textBlock {
-    font-size: 18px;
-    line-height: 21px;
-    max-width: 100%;
-  }
+    .mac {
+        width: 800px;
+        bottom: 240px;
+    }
 }
 
-/* 768px */
+
 @media (max-width: 768px) {
   .absoluteSection {
-    padding: 31px 0px 250px 0px;
+    padding: 31px 0px 150px 0px;
   }
 
   .mac {
-    max-width: 500px;
+    max-width: 600px;
+    bottom: 70px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -299,7 +247,7 @@
 /* 480px */
 @media (max-width: 480px) {
   .absoluteSection {
-    padding: 31px 0px 200px 0px;
+    padding: 31px 0px 110px 0px;
   }
 
   .mac {
@@ -344,68 +292,5 @@
 
   .marqueeText {
     margin-right: 30px;
-  }
-}
-
-.lowerContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-left: 156px;
-  margin-right: 156px;
-
-  .textBlock {
-    max-width: 551px;
-    color: #ffffffde;
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 21px;
-    line-height: 1.15;
-    letter-spacing: -0.21px;
-    vertical-align: middle;
-  }
-
-  .buttons {
-    display: flex;
-    flex-direction: row;
-    gap: 6px;
-
-    .firstButton {
-      background-color: #e8e8e8;
-      color: #000000;
-
-      font-weight: 400;
-      font-style: Regular;
-      font-size: 17px;
-      line-height: 20.4px;
-      letter-spacing: -0.51px;
-      text-align: center;
-      vertical-align: middle;
-
-      padding-top: 4.5px;
-      padding-right: 15.5px;
-      padding-bottom: 4.5px;
-      padding-left: 15.5px;
-      border-radius: 50px;
-    }
-
-    .secondButton {
-      color: #ffffff;
-      background-color: #505050;
-
-      font-weight: 400;
-      font-style: Regular;
-      font-size: 17px;
-      line-height: 20.4px;
-      letter-spacing: -0.51px;
-      text-align: center;
-      vertical-align: middle;
-
-      padding-top: 4.5px;
-      padding-right: 15.5px;
-      padding-bottom: 4.5px;
-      padding-left: 15.5px;
-      border-radius: 50px;
-    }
   }
 }
