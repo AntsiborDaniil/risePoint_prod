@@ -251,45 +251,47 @@
 /* 1280px */
 @media (max-width: 1280px) {
   .wrapper {
-    padding: 9px;
+    padding: 8px;
+    min-height: auto;
   }
 
   .contentWrap {
-    padding-bottom: 0px;
+    padding-bottom: 20px;
+    margin-top: 200px;
   }
 
   .content {
-    padding: 90px 32px 65px 32px;
+    padding: 80px 30px 60px 30px;
   }
 
   .line1 {
-    font-size: 95px;
-    line-height: 1.07;
+    font-size: 64px;
+    line-height: 1.09;
     letter-spacing: 0;
   }
 
-  .line2 {
-    font-size: 97px;
-    line-height: 1.05;
-    letter-spacing: -0.047em;
-  }
-
+  .line2,
   .line3 {
-    font-size: 85px;
-    line-height: 1.06;
+    font-size: 56px;
+    line-height: 1.07;
     letter-spacing: -0.047em;
   }
 
   .line2Row {
-    padding-left: 26px;
-    gap: 32px;
-    font-size: 97px; /* Синхронизируем с line2 */
+    padding-left: 24px;
+    gap: 30px;
+    font-size: 56px; /* Синхронизируем с line2 для правильного масштабирования кружка */
   }
 
   /* Размеры circleBtn и cursor будут автоматически масштабироваться через em */
 
   .thinDivider {
-    width: 750px;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .meta {
+    max-width: 100%;
   }
 }
 
@@ -344,8 +346,7 @@
 @media (max-width: 768px) {
   .wrapper {
     padding: 6px;
-    height: 100vh;
-    min-height: 600px;
+    min-height: 700px;
   }
 
   .contentWrap {
@@ -358,6 +359,11 @@
     width: 100%;
   }
 
+  .circleBtn {
+    width: 5em;
+    height: 5em;
+  }
+
   .line1 {
     font-size: 48px;
     line-height: 52px;
@@ -366,7 +372,7 @@
 
   .line2,
   .line3 {
-    font-size: 42px;
+    font-size: 48px;
     line-height: 46px;
     letter-spacing: -0.047em;
   }
@@ -395,11 +401,49 @@
 @media (max-width: 480px) {
   .wrapper {
     padding: 4px;
-    min-height: 500px;
+    min-height: 600px;
   }
 
   .contentWrap {
     margin-top: 150px;
+  }
+
+  .circleBtn {
+    width: 4em;
+    height: 4em;
+    animation: pulseMobile 1.5s ease-in-out infinite;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+
+  .circleBtn img {
+    width: 1.7em;
+    height: 1.7em;
+  }
+
+  @keyframes pulseMobile {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 0.9;
+      box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+  }
+
+  .cursor {
+    min-height: 50px;
+    min-width: 10px;
+    margin-left: 10px;
+    width: 0;
+    height: 0em;
   }
 
   .content {
@@ -414,7 +458,7 @@
 
   .line2,
   .line3 {
-    font-size: 32px;
+    font-size: 36px;
     line-height: 36px;
     letter-spacing: -0.047em; /* Сохраняем пропорцию */
   }

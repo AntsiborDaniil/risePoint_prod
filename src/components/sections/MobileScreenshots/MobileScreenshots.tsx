@@ -11,7 +11,7 @@ interface Screenshot {
 const leftScreenshots: Screenshot[] = [
   {
     id: 1,
-    src: "/images/smartHome/first.png",
+    src: "/images/smartHome/firstScreen.png",
     alt: "First screen",
   },
   {

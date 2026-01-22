@@ -34,7 +34,6 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 0px;
-  width: 100%;
 }
 
 .screenshotItem {
@@ -44,9 +43,8 @@
 }
 
 .screenshot {
-  width: 100%;
-  max-width: 365px;
-  height: auto;
+  width: 365px;
+  height: 725px;
   border-radius: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   object-fit: contain;
@@ -64,9 +62,9 @@
 }
 
 .phoneImage {
-  width: 100%;
-  max-width: 348px;
+  width: 348px;
   height: auto;
+  max-height: 700px;
   border-radius: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   object-fit: contain;
@@ -79,4 +77,20 @@
 }
 
 /* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    overflow: hidden;
+    padding: 0;
+    gap: 0;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    overflow: hidden;
+  }
+
+  .centerColumn {
+    overflow: hidden;
+  }
+}
 /* 1440px */
