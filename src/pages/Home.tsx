@@ -1,5 +1,5 @@
 import Header from "../components/ui/Header/Header";
-import AnimatedFooter from "../components/ui/Footer/AnimatedFooter";
+import Footer from "../components/ui/Footer/Footer";
 import ServicesSection from "../components/sections/Services/Services";
 import HeroSection from "../components/sections/Hero/Hero";
 import MainHero from "@/components/sections/MainHero/MainHero";
@@ -33,8 +33,8 @@ export default function Home() {
           <PromoSection />
           <ContactSection />
           <TestimonialsSection />
+        <Footer />
         </main>
-        <AnimatedFooter />
         <Modal />
       </div>
     </ModalProvider>
