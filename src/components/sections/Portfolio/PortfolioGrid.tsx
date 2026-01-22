@@ -1,11 +1,78 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./PortfolioGrid.module.css";
 
 const PortfolioGrid: React.FC = () => {
+  const [activeItem, setActiveItem] = useState<number | null>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) {
+      setActiveItem(null);
+      return;
+    }
+
+    const findClosestToCenter = () => {
+      const windowCenter = window.innerHeight / 2;
+      let closestIndex: number | null = null;
+      let minDistance = Infinity;
+
+      itemRefs.current.forEach((item, index) => {
+        if (!item) return;
+
+        const rect = item.getBoundingClientRect();
+        const itemCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(itemCenter - windowCenter);
+
+        // Проверяем, что элемент виден на экране
+        if (
+          rect.top < window.innerHeight &&
+          rect.bottom > 0 &&
+          distance < minDistance
+        ) {
+          minDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      return closestIndex;
+    };
+
+    const handleScroll = () => {
+      const closest = findClosestToCenter();
+      setActiveItem(closest);
+    };
+
+    handleScroll(); // Проверяем сразу
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, [isMobile]);
+
   return (
     <section className={styles.container}>
       <div className={styles.portfolioGrid}>
-        <div className={styles.gridItem} data-color="#4A90E2">
+        <div
+          ref={(el) => {
+            itemRefs.current[0] = el;
+          }}
+          className={`${styles.gridItem} ${isMobile && activeItem === 0 ? styles.descriptionVisible : ""}`}
+          data-color="#4A90E2"
+        >
           <div className={styles.projectLink}>
             <div className={styles.imageContainer}>
               <img
@@ -33,7 +100,13 @@ const PortfolioGrid: React.FC = () => {
           </div>
         </div>
 
-        <div className={styles.gridItem} data-color="#E94B3C">
+        <div
+          ref={(el) => {
+            itemRefs.current[1] = el;
+          }}
+          className={`${styles.gridItem} ${isMobile && activeItem === 1 ? styles.descriptionVisible : ""}`}
+          data-color="#E94B3C"
+        >
           <div className={styles.projectLink}>
             <div className={styles.imageContainer}>
               <img
@@ -61,7 +134,13 @@ const PortfolioGrid: React.FC = () => {
           </div>
         </div>
 
-        <div className={styles.gridItem} data-color="#9B59B6">
+        <div
+          ref={(el) => {
+            itemRefs.current[2] = el;
+          }}
+          className={`${styles.gridItem} ${isMobile && activeItem === 2 ? styles.descriptionVisible : ""}`}
+          data-color="#9B59B6"
+        >
           <div className={styles.projectLink}>
             <div className={styles.imageContainer}>
               <img
@@ -87,7 +166,13 @@ const PortfolioGrid: React.FC = () => {
           </div>
         </div>
 
-        <div className={styles.gridItem} data-color="#F39C12">
+        <div
+          ref={(el) => {
+            itemRefs.current[3] = el;
+          }}
+          className={`${styles.gridItem} ${isMobile && activeItem === 3 ? styles.descriptionVisible : ""}`}
+          data-color="#F39C12"
+        >
           <div className={styles.projectLink}>
             <div className={styles.imageContainer}>
               <img
@@ -116,7 +201,13 @@ const PortfolioGrid: React.FC = () => {
           </div>
         </div>
 
-        <div className={styles.gridItem} data-color="#1ABC9C">
+        <div
+          ref={(el) => {
+            itemRefs.current[4] = el;
+          }}
+          className={`${styles.gridItem} ${isMobile && activeItem === 4 ? styles.descriptionVisible : ""}`}
+          data-color="#1ABC9C"
+        >
           <div className={styles.projectLink}>
             <div className={styles.imageContainer}>
               <img
@@ -142,7 +233,13 @@ const PortfolioGrid: React.FC = () => {
           </div>
         </div>
 
-        <div className={styles.gridItem} data-color="#E67E22">
+        <div
+          ref={(el) => {
+            itemRefs.current[5] = el;
+          }}
+          className={`${styles.gridItem} ${isMobile && activeItem === 5 ? styles.descriptionVisible : ""}`}
+          data-color="#E67E22"
+        >
           <div className={styles.projectLink}>
             <div className={styles.imageContainer}>
               <img

@@ -2,7 +2,9 @@
 import styles from "./Footer.module.css";
 
 export default function Footer() {
-  const scrollToTop = () => {
+  const scrollToTop = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 

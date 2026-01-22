@@ -189,6 +189,51 @@
   margin-top: 4px;
 }
 
+/* Автоматическое открытие описания в колоночном режиме */
+@media (max-width: 768px) {
+  .gridItem.descriptionVisible .projectDescription {
+    opacity: 1;
+    max-height: 100px;
+    margin-top: 4px;
+  }
+
+  /* Автоматически применяем красивые эффекты когда описание открыто */
+  .gridItem.descriptionVisible .projectImage {
+    transform: scale(1.05);
+  }
+
+  .gridItem.descriptionVisible .arrowIcon {
+    background: #007bff;
+    color: #ffffff;
+    transform: scale(1.1);
+  }
+
+  /* Box-shadow автоматически когда описание открыто */
+  .gridItem.descriptionVisible[data-color="#4A90E2"] .overlay {
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.35);
+  }
+
+  .gridItem.descriptionVisible[data-color="#E94B3C"] .overlay {
+    box-shadow: 0 6px 20px rgba(233, 75, 60, 0.35);
+  }
+
+  .gridItem.descriptionVisible[data-color="#9B59B6"] .overlay {
+    box-shadow: 0 6px 20px rgba(155, 89, 182, 0.35);
+  }
+
+  .gridItem.descriptionVisible[data-color="#F39C12"] .overlay {
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.35);
+  }
+
+  .gridItem.descriptionVisible[data-color="#1ABC9C"] .overlay {
+    box-shadow: 0 6px 20px rgba(26, 188, 156, 0.35);
+  }
+
+  .gridItem.descriptionVisible[data-color="#E67E22"] .overlay {
+    box-shadow: 0 6px 20px rgba(230, 126, 34, 0.35);
+  }
+}
+
 .arrowIcon {
   background-color: #d9d9d9;
 

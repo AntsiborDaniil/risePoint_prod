@@ -40,14 +40,25 @@ export default function ContactSection() {
   const { openModal } = useModal();
   const [showCopied, setShowCopied] = useState(false);
   const emailButtonRef = useRef<HTMLAnchorElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleEmailClick = async (e: React.MouseEvent<HTMLAnchorElement>, email: string) => {
     e.preventDefault();
     try {
       await navigator.clipboard.writeText(email);
+      
+      // Очищаем предыдущий таймер, если он есть
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+      
+      // Показываем уведомление
       setShowCopied(true);
-      setTimeout(() => {
+      
+      // Устанавливаем новый таймер
+      timeoutRef.current = setTimeout(() => {
         setShowCopied(false);
+        timeoutRef.current = null;
       }, 2000);
     } catch (err) {
       console.error("Failed to copy email:", err);
@@ -133,9 +144,6 @@ export default function ContactSection() {
                   </div>
                   <span className={styles.contactText}>{method.text}</span>
                 </a>
-                {method.icon === "email" && showCopied && (
-                  <div className={styles.copiedNotification}>Скопировано!</div>
-                )}
               </div>
             ))}
           </div>
@@ -154,6 +162,9 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
+      {showCopied && (
+        <div className={styles.copiedNotification}>Скопировано!</div>
+      )}
     </section>
   );
 }
